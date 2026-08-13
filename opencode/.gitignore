@@ -1,0 +1,18 @@
+# Beads/Hive local files
+.beads/beads.db
+.beads/beads.db-shm
+.beads/beads.db-wal
+.beads/.gitignore
+.beads/*.startlock
+.beads/*.sock
+
+# OpenCode internal
+.opencode/
+
+# Node
+node_modules/
+bun.lock
+package-lock.json
+
+# OS
+.DS_Store

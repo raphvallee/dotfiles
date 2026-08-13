@@ -1,0 +1,28 @@
+{
+  "permissions": {
+    "defaultMode": "default"
+  },
+  "worktree": {
+    "baseRef": "fresh"
+  },
+  "askUserQuestionTimeout": "never",
+  "autoUpdatesChannel": "stable",
+  "minimumVersion": "2.1.229",
+  "theme": "dark",
+  "editorMode": "normal",
+  "verbose": false,
+  "preferredNotifChannel": "auto",
+  "autoCompactEnabled": true,
+  "switchModelsOnFlag": true,
+  "autoScrollEnabled": true,
+  "fileCheckpointingEnabled": true,
+  "showTurnDuration": true,
+  "terminalProgressBarEnabled": true,
+  "useAutoModeDuringPlan": true,
+  "statusLine": {
+    "type": "command",
+    "command": "npx -y ccstatusline@latest",
+    "padding": 0,
+    "refreshInterval": 10
+  }
+}

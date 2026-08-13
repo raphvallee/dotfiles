@@ -1,0 +1,16 @@
+# Exclude sensitive data and local state
+!opencode.json
+!tui.json
+!config.json
+!settings.json
+
+*.sqlite
+*.db
+history/
+cache/
+mcp-servers/env/
+
+.env
+.env.*
+*.env
+!*.env.example

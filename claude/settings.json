@@ -5,6 +5,8 @@
   "worktree": {
     "baseRef": "fresh"
   },
+  "effortLevel": "medium",
+  "model": "deepseek/deepseek-v4-flash-0731",
   "askUserQuestionTimeout": "never",
   "autoUpdatesChannel": "stable",
   "minimumVersion": "2.1.229",

@@ -9,6 +9,7 @@ security_warnings_*.json
 stats-cache.json
 mcp-needs-auth-cache.json
 .last-update-result.json
+.last-cleanup
 
 # Session data
 history.jsonl

@@ -12,3 +12,5 @@ $env:ANTHROPIC_DEFAULT_OPUS_MODEL = "openai/gpt-5.6-luna"
 $env:ANTHROPIC_DEFAULT_SONNET_MODEL = "deepseek/deepseek-v4-flash-0731"
 $env:ANTHROPIC_DEFAULT_HAIKU_MODEL = "deepseek/deepseek-v4-flash-0731"
 $env:CLAUDE_CODE_SUBAGENT_MODEL = "deepseek/deepseek-v4-flash-0731"
+
+move this shit to .claude/settings.json

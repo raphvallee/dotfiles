@@ -31,7 +31,11 @@
       },
       {
         "id": "8ca27326-54db-4ee8-a315-c7979e4c053d",
-        "type": "output-speed"
+        "type": "output-speed",
+        "rawValue": false,
+        "metadata": {
+          "windowSeconds": "3"
+        }
       },
       {
         "id": "4",
@@ -50,28 +54,6 @@
         "id": "7",
         "type": "git-changes",
         "color": "brightYellow"
-      },
-      {
-        "id": "7b2ea7f8-6d47-4a18-a0ea-c2bbc72a68b2",
-        "type": "separator"
-      },
-      {
-        "id": "e9dcff8b-a219-4819-bbbd-fc973c009af4",
-        "type": "session-cost",
-        "colors": [
-          {
-            "threshold": 0,
-            "color": "green"
-          },
-          {
-            "threshold": 0.5,
-            "color": "yellow"
-          },
-          {
-            "threshold": 2,
-            "color": "brightRed"
-          }
-        ]
       }
     ],
     [],

@@ -32,9 +32,9 @@
       {
         "id": "8ca27326-54db-4ee8-a315-c7979e4c053d",
         "type": "output-speed",
-        "rawValue": false,
+        "rawValue": true,
         "metadata": {
-          "windowSeconds": "3"
+          "windowSeconds": "30"
         }
       },
       {

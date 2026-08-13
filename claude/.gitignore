@@ -20,6 +20,7 @@ file-history
 paste-cache
 session-env
 shell-snapshots
+sessions
 
 # Agent and team state
 plans

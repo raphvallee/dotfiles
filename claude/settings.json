@@ -23,6 +23,14 @@
     "padding": 0,
     "refreshInterval": 10
   },
+  "extraKnownMarketplaces": {
+    "caveman": {
+      "source": {
+        "source": "github",
+        "repo": "JuliusBrussee/caveman"
+      }
+    }
+  },
   "effortLevel": "medium",
   "askUserQuestionTimeout": "never",
   "autoUpdatesChannel": "stable",
@@ -37,5 +45,8 @@
   "fileCheckpointingEnabled": true,
   "showTurnDuration": true,
   "terminalProgressBarEnabled": true,
-  "useAutoModeDuringPlan": true
+  "useAutoModeDuringPlan": true,
+  "enabledPlugins": {
+    "caveman@caveman": true
+  }
 }

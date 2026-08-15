@@ -10,6 +10,8 @@ stats-cache.json
 mcp-needs-auth-cache.json
 .last-update-result.json
 .last-cleanup
+.caveman-active
+.caveman-mode-log.jsonl
 
 # Session data
 history.jsonl

@@ -15,7 +15,7 @@ claude plugin install caveman@caveman
 
 The following environment variables are required to route traffic through OpenRouter.
 
-Note: Set your OPENROUTER_API_KEY before running Claude CLI commands.
+> Note: Set your OPENROUTER_API_KEY before running Claude CLI commands.
 
 #### Powershell Setup
 

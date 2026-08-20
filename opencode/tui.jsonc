@@ -21,5 +21,8 @@
         "notifications": true,
         "sound": true,
         "volume": 0.4
-    }
+    },
+    "plugin": [
+        "oh-my-openagent@4.19.4"
+    ]
 }

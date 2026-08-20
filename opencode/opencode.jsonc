@@ -1,3 +1,45 @@
 {
-  "$schema": "https://opencode.ai/config.json"
+  "$schema": "https://opencode.ai/config.json",
+  "model": "lmstudio/qwen/qwen3.6-35b-a3b",
+  "small_model": "lmstudio/qwen/qwen3.6-35b-a3b",
+  "enabled_providers": [
+    "lmstudio",
+    // "openrouter"
+  ],
+  "autoupdate": true,
+  "provider": {
+    "lmstudio": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "LM Studio (local)",
+      "options": {
+        "baseURL": "http://173.178.243.192:25568/v1"
+      },
+      "models": {
+        "qwen/qwen3.6-35b-a3b": {
+          "name": "Qwen3.6 35b A3B",
+          "tool_call": true,
+          "reasoning": true,
+        }
+      }
+    }
+  },
+  "permission": {
+    // .env reads without prompts
+    "read": {
+      ".env": "allow",
+      ".env.*": "allow",
+      ".env-*": "allow"
+    },
+    "external_directory": "allow",
+    "bash": {
+      "git push": "allow",
+      "git push *": "allow",
+      "sudo *": "deny",
+      "rm -rf /": "deny",
+      "rm -rf /*": "deny",
+      "rm -rf ~": "deny",
+      "rm -rf ~/*": "deny",
+      ":(){:|:&};:": "deny"
+    }
+  },
 }

@@ -2,42 +2,46 @@
 .credentials.json
 credentials.json
 
-# Internal state
-.claude.json
-.claude.json.backup.*
-security_warnings_*.json
-stats-cache.json
-mcp-needs-auth-cache.json
-.last-update-result.json
-.last-cleanup
-.caveman-active
+# Cache & Telemetry
 .caveman-mode-log.jsonl
-
-# Session data
-history.jsonl
-backups
-cache
-debug
-file-history
+mcp-needs-auth-cache.json
 paste-cache
-session-env
-shell-snapshots
-sessions
-
-# Agent and team state
-plugins
-tasks
-teams
-todos
-
-# Telemetry
+stats-cache.json
 statsig
 telemetry
 usage-data
 
-# IDE integration
+# Internal State & Status
+.caveman-active
+.claude.json
+.claude.json.backup.*
+.last-cleanup
+.last-update-result.json
+security_warnings_*.json
+
+# Session & Runtime Data
+backups
+cache
+debug
+file-history
+history.jsonl
+session-env
+sessions
+shell-snapshots
+
+# Agent, Tasks & Background Services
+daemon
+daemon.log
+jobs
+plugins
+projects
+tasks
+todos
+teams
+
+# Tooling & Editor Integrations
 ide/
 
-# Projects
+# Generated Project Content
 projects/**/*.jsonl
 projects/**/*.txt

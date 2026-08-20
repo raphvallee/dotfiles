@@ -23,14 +23,23 @@
     "refreshInterval": 10
   },
   "enabledPlugins": {
-    "caveman@caveman": true
+    "mac-storage-cleaner@mac-storage-cleaner": true,
+    "ralph-loop@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
     "caveman": {
       "source": {
         "source": "github",
         "repo": "JuliusBrussee/caveman"
-      }
+      },
+      "autoUpdate": true
+    },
+    "mac-storage-cleaner": {
+      "source": {
+        "source": "github",
+        "repo": "JubaKitiashvili/mac-storage-cleaner"
+      },
+      "autoUpdate": true
     }
   },
   "effortLevel": "medium",

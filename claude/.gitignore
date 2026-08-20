@@ -18,6 +18,7 @@ usage-data
 .last-cleanup
 .last-update-result.json
 security_warnings_*.json
+daemon.status.json
 
 # Session & Runtime Data
 backups

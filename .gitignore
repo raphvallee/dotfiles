@@ -18,3 +18,5 @@ mcp-servers/env/
 
 *.bak.*
 *.bak
+
+*.lock

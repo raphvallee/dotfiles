@@ -53,6 +53,186 @@
             "context": 65536,
             "output": 32768
           },
+        },
+        "nvidia-nemotron-3.5-lightning-30b-a3b": {
+          "name": "NVIDIA Nemotron 3.5 Lightning 30B A3B",
+          "tool_call": true,
+          "reasoning": false,
+          "limit": {
+            "context": 131072,
+            "output": 65536
+          },
+        },
+        "ling-3.0-tiny": {
+          "name": "Ling 3.0 Tiny",
+          "tool_call": true,
+          "reasoning": false,
+          "limit": {
+            "context": 131072,
+            "output": 32768
+          },
+        },
+        "qwen/qwen3.8-27b": {
+          "name": "Qwen3.8 27B",
+          "tool_call": true,
+          "reasoning": false,
+          "limit": {
+            "context": 262144,
+            "output": 65536
+          },
+        },
+        "google/gemma-4-26b-a4b": {
+          "name": "Gemma 4 26B A4B",
+          "tool_call": true,
+          "reasoning": false,
+          "limit": {
+            "context": 262144,
+            "output": 65536
+          },
+        },
+        "google/gemma-4-26b-a4b-qat": {
+          "name": "Gemma 4 26B A4B QAT",
+          "tool_call": true,
+          "reasoning": false,
+          "limit": {
+            "context": 262144,
+            "output": 65536
+          },
+        },
+        "ai9stars_g9v3-3b": {
+          "name": "Ai9stars G9V3 3B",
+          "tool_call": false,
+          "reasoning": false,
+          "limit": {
+            "context": 131072,
+            "output": 32768
+          },
+        },
+        "openai/gpt-oss-20b": {
+          "name": "GPT-OSS 20B",
+          "tool_call": true,
+          "reasoning": false,
+          "limit": {
+            "context": 131072,
+            "output": 32768
+          },
+        },
+        "microsoft/phi-4-mini-reasoning": {
+          "name": "Phi 4 Mini Reasoning",
+          "tool_call": false,
+          "reasoning": true,
+          "limit": {
+            "context": 131072,
+            "output": 32768
+          },
+        },
+        "qwen/qwen3.5-9b": {
+          "name": "Qwen3.5 9B",
+          "tool_call": true,
+          "reasoning": false,
+          "limit": {
+            "context": 262144,
+            "output": 65536
+          },
+        },
+        "qwen/qwen3-30b-a3b": {
+          "name": "Qwen3 30B A3B",
+          "tool_call": true,
+          "reasoning": false,
+          "limit": {
+            "context": 32768,
+            "output": 32768
+          },
+        },
+        "qwen/qwen3-coder-30b": {
+          "name": "Qwen3 Coder 30B",
+          "tool_call": true,
+          "reasoning": false,
+          "limit": {
+            "context": 262144,
+            "output": 65536
+          },
+        },
+        "qwen2.5-coder-7b-instruct": {
+          "name": "Qwen2.5 Coder 7B Instruct",
+          "tool_call": false,
+          "reasoning": false,
+          "limit": {
+            "context": 131072,
+            "output": 32768
+          },
+        },
+        "liquid/lfm2.5-1.2b": {
+          "name": "LFM2.5 1.2B",
+          "tool_call": true,
+          "reasoning": false,
+          "limit": {
+            "context": 128000,
+            "output": 32768
+          },
+        },
+        "liquid/lfm2-1.2b": {
+          "name": "LFM2 1.2B",
+          "tool_call": false,
+          "reasoning": false,
+          "limit": {
+            "context": 128000,
+            "output": 32768
+          },
+        },
+        "qwen/qwen3-4b": {
+          "name": "Qwen3 4B",
+          "tool_call": true,
+          "reasoning": false,
+          "limit": {
+            "context": 32768,
+            "output": 32768
+          },
+        },
+        "qwen/qwen3-1.7b": {
+          "name": "Qwen3 1.7B",
+          "tool_call": true,
+          "reasoning": false,
+          "limit": {
+            "context": 32768,
+            "output": 32768
+          },
+        },
+        "deepseek-coder-6.7b-instruct": {
+          "name": "DeepSeek Coder 6.7B Instruct",
+          "tool_call": false,
+          "reasoning": false,
+          "limit": {
+            "context": 16384,
+            "output": 8192
+          },
+        },
+        "qwen/qwen3-8b": {
+          "name": "Qwen3 8B",
+          "tool_call": true,
+          "reasoning": false,
+          "limit": {
+            "context": 32768,
+            "output": 32768
+          },
+        },
+        "google/gemma-4-e2b": {
+          "name": "Gemma 4 E2B",
+          "tool_call": true,
+          "reasoning": false,
+          "limit": {
+            "context": 131072,
+            "output": 32768
+          },
+        },
+        "google/gemma-4-e4b": {
+          "name": "Gemma 4 E4B",
+          "tool_call": true,
+          "reasoning": false,
+          "limit": {
+            "context": 131072,
+            "output": 32768
+          },
         }
       }
     }

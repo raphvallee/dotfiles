@@ -23,8 +23,9 @@
     "refreshInterval": 10
   },
   "enabledPlugins": {
-    "mac-storage-cleaner@mac-storage-cleaner": true,
-    "ralph-loop@claude-plugins-official": true
+    "mac-storage-cleaner@mac-storage-cleaner": false,
+    "ralph-loop@claude-plugins-official": true,
+    "caveman@caveman": true
   },
   "extraKnownMarketplaces": {
     "caveman": {

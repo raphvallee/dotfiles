@@ -1,10 +1,8 @@
 {
-  "plugin": [
-    "oh-my-openagent@latest"
-  ],
+  "plugin": ["oh-my-openagent@latest"],
   "$schema": "https://opencode.ai/config.json",
   "model": "lmstudio/qwen/qwen3.6-35b-a3b",
-  "small_model": "lmstudio/qwen3.5-4b",
+  "small_model": "lmstudio/qwen/qwen3.6-35b-a3b",
   "enabled_providers": [
     "lmstudio",
     // "openrouter"
@@ -40,8 +38,8 @@
             "output": 32768
           },
         },
-        "qwen3.5-4b": {
-          "name": "Qwen3.5 4B",
+        "qwen/qwen3.5-4b": {
+          "name": "Qwen3 30B A3B 2507",
           "tool_call": true,
           "reasoning": false,
         },

@@ -1,25 +1,25 @@
 {
-  "$schema": "https://opencode.ai/tui.json",
-  "theme": "opencode",
-  "leader_timeout": 2000,
-//   "keybinds": {
-//     "leader": "ctrl+x",
-//     "command_list": "ctrl+p"
-//   },
-  "scroll_speed": 3,
-  "scroll_acceleration": {
-    "enabled": true // takes over "scroll_speed"
-  },
-  "diff_style": "auto",
-  "cursor": {
-    "style": "block",
-    "blinking": true
-  },
-  "mouse": true,
-  "attention": {
-    "enabled": true,
-    "notifications": true,
-    "sound": true,
-    "volume": 0.4
-  }
+    "$schema": "https://opencode.ai/tui.json",
+    "theme": "opencode",
+    "leader_timeout": 2000,
+    //   "keybinds": {
+    //     "leader": "ctrl+x",
+    //     "command_list": "ctrl+p"
+    //   },
+    "scroll_speed": 3,
+    "scroll_acceleration": {
+        "enabled": true // takes over "scroll_speed"
+    },
+    "diff_style": "auto",
+    "cursor": {
+        "style": "block",
+        "blinking": true
+    },
+    "mouse": true,
+    "attention": {
+        "enabled": true,
+        "notifications": true,
+        "sound": true,
+        "volume": 0.4
+    }
 }

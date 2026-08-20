@@ -25,3 +25,10 @@ $env:ANTHROPIC_AUTH_TOKEN = $env:OPENROUTER_API_KEY
 export OPENROUTER_API_KEY="your_openrouter_api_key_here"
 export ANTHROPIC_AUTH_TOKEN="$OPENROUTER_API_KEY"
 ```
+
+## OpenCode
+
+### Oh My OpenAgent
+``` powershell
+bunx oh-my-openagent install
+```

@@ -1,5 +1,47 @@
 {
   "$schema": "https://opencode.ai/config.json",
+  "plugin": [
+    [
+      "opencode-goal-plugin",
+      {
+        "budgetWrapupRatio": 0.8,
+        "commandName": "goal",
+        "goalAgentName": "goal",
+        "lifecycleMessages": true,
+        "maxDurationMs": 900000,
+        "maxPromptFailures": 3,
+        "maxRecentMessages": 50,
+        "maxStoredResults": 200,
+        "maxTokens": 200000,
+        "maxTurns": 10,
+        "minDelayMs": 1500,
+        "noContinueWhileChildrenActive": true,
+        "noInterruptOnUserMessage": true,
+        "noProgressTokenThreshold": 50,
+        "noProgressTurnsBeforePause": 2,
+        "noToolCallTurnsBeforePause": 2,
+        "persistState": true,
+        "registerAgents": true,
+        "registerCommand": true,
+        "registerTools": true,
+        "resultRetentionMs": 604800000,
+        "stateFilePath": ".opencode/goals/state.json",
+        "verifierAgentName": "goal-verify",
+        "warnDurationMsRemaining": 60000,
+        "warnTokensRemaining": 25000,
+        "warnTurnsRemaining": 3
+      }
+    ]
+  ],
+  "command": {
+    "goal": {
+      "description": "Set a session-scoped goal and auto-continue until complete.",
+      "template": "$ARGUMENTS",
+      "agent": "build"
+    }
+  },
+  "lsp": true,
+  "formatter": true,
   "model": "lmstudio/qwen/qwen3.6-35b-a3b",
   "small_model": "lmstudio/qwen3.5-4b",
   "enabled_providers": [
@@ -28,37 +70,14 @@
             "output": 65536
           },
         },
-        "qwen/qwen3-30b-a3b-2507": {
-          "name": "Qwen3 30B A3B 2507",
-          "tool_call": true,
-          "reasoning": false,
-          "limit": {
-            "context": 131072,
-            "output": 32768
-          },
-        },
-        "qwen3.5-4b": {
-          "name": "Qwen3.5 4B",
-          "tool_call": true,
-          "reasoning": false,
-        },
-        "qwen/qwen3-4b-thinking-2507": {
-          "name": "Qwen3 4B Thinking 2507",
-          "tool_call": true,
-          "reasoning": true,
-          "limit": {
-            "context": 65536,
-            "output": 32768
-          },
-        },
         "nvidia-nemotron-3.5-lightning-30b-a3b": {
-          "name": "NVIDIA Nemotron 3.5 Lightning 30B A3B",
+          "name": "Nvidia Nemotron 3.5 Lightning 30B A3b",
           "tool_call": true,
           "reasoning": false,
           "limit": {
-            "context": 131072,
+            "context": 1048576,
             "output": 65536
-          },
+          }
         },
         "ling-3.0-tiny": {
           "name": "Ling 3.0 Tiny",
@@ -66,8 +85,26 @@
           "reasoning": false,
           "limit": {
             "context": 131072,
-            "output": 32768
-          },
+            "output": 65536
+          }
+        },
+        "qwen3.5-4b": {
+          "name": "Qwen3.5 4B",
+          "tool_call": true,
+          "reasoning": false,
+          "limit": {
+            "context": 262144,
+            "output": 65536
+          }
+        },
+        "qwen/qwen3-4b-thinking-2507": {
+          "name": "Qwen3 4B Thinking 2507",
+          "tool_call": true,
+          "reasoning": true,
+          "limit": {
+            "context": 262144,
+            "output": 65536
+          }
         },
         "qwen/qwen3.8-27b": {
           "name": "Qwen3.8 27B",
@@ -76,52 +113,34 @@
           "limit": {
             "context": 262144,
             "output": 65536
-          },
+          }
         },
         "google/gemma-4-26b-a4b": {
-          "name": "Gemma 4 26B A4B",
+          "name": "Gemma 4 26B A4b",
           "tool_call": true,
           "reasoning": false,
           "limit": {
             "context": 262144,
             "output": 65536
-          },
+          }
         },
         "google/gemma-4-26b-a4b-qat": {
-          "name": "Gemma 4 26B A4B QAT",
+          "name": "Gemma 4 26B A4b Qat",
           "tool_call": true,
           "reasoning": false,
           "limit": {
             "context": 262144,
             "output": 65536
-          },
-        },
-        "ai9stars_g9v3-3b": {
-          "name": "Ai9stars G9V3 3B",
-          "tool_call": false,
-          "reasoning": false,
-          "limit": {
-            "context": 131072,
-            "output": 32768
-          },
+          }
         },
         "openai/gpt-oss-20b": {
-          "name": "GPT-OSS 20B",
+          "name": "Gpt Oss 20B",
           "tool_call": true,
           "reasoning": false,
           "limit": {
             "context": 131072,
-            "output": 32768
-          },
-        },
-        "microsoft/phi-4-mini-reasoning": {
-          "name": "Phi 4 Mini Reasoning",
-          "tool_call": false,
-          "reasoning": true,
-          "limit": {
-            "context": 131072,
-            "output": 32768
-          },
+            "output": 65536
+          }
         },
         "qwen/qwen3.5-9b": {
           "name": "Qwen3.5 9B",
@@ -130,16 +149,16 @@
           "limit": {
             "context": 262144,
             "output": 65536
-          },
+          }
         },
         "qwen/qwen3-30b-a3b": {
-          "name": "Qwen3 30B A3B",
+          "name": "Qwen3 30B A3b",
           "tool_call": true,
           "reasoning": false,
           "limit": {
             "context": 32768,
             "output": 32768
-          },
+          }
         },
         "qwen/qwen3-coder-30b": {
           "name": "Qwen3 Coder 30B",
@@ -148,34 +167,25 @@
           "limit": {
             "context": 262144,
             "output": 65536
-          },
+          }
         },
-        "qwen2.5-coder-7b-instruct": {
-          "name": "Qwen2.5 Coder 7B Instruct",
-          "tool_call": false,
+        "qwen/qwen3-30b-a3b-2507": {
+          "name": "Qwen3 30B A3b 2507",
+          "tool_call": true,
           "reasoning": false,
           "limit": {
-            "context": 131072,
-            "output": 32768
-          },
+            "context": 262144,
+            "output": 65536
+          }
         },
         "liquid/lfm2.5-1.2b": {
-          "name": "LFM2.5 1.2B",
+          "name": "Lfm2.5 1.2B",
           "tool_call": true,
           "reasoning": false,
           "limit": {
             "context": 128000,
             "output": 32768
-          },
-        },
-        "liquid/lfm2-1.2b": {
-          "name": "LFM2 1.2B",
-          "tool_call": false,
-          "reasoning": false,
-          "limit": {
-            "context": 128000,
-            "output": 32768
-          },
+          }
         },
         "qwen/qwen3-4b": {
           "name": "Qwen3 4B",
@@ -184,7 +194,7 @@
           "limit": {
             "context": 32768,
             "output": 32768
-          },
+          }
         },
         "qwen/qwen3-1.7b": {
           "name": "Qwen3 1.7B",
@@ -193,16 +203,7 @@
           "limit": {
             "context": 32768,
             "output": 32768
-          },
-        },
-        "deepseek-coder-6.7b-instruct": {
-          "name": "DeepSeek Coder 6.7B Instruct",
-          "tool_call": false,
-          "reasoning": false,
-          "limit": {
-            "context": 16384,
-            "output": 8192
-          },
+          }
         },
         "qwen/qwen3-8b": {
           "name": "Qwen3 8B",
@@ -211,25 +212,25 @@
           "limit": {
             "context": 32768,
             "output": 32768
-          },
+          }
         },
         "google/gemma-4-e2b": {
-          "name": "Gemma 4 E2B",
+          "name": "Gemma 4 E2b",
           "tool_call": true,
           "reasoning": false,
           "limit": {
             "context": 131072,
-            "output": 32768
-          },
+            "output": 65536
+          }
         },
         "google/gemma-4-e4b": {
-          "name": "Gemma 4 E4B",
+          "name": "Gemma 4 E4b",
           "tool_call": true,
           "reasoning": false,
           "limit": {
             "context": 131072,
-            "output": 32768
-          },
+            "output": 65536
+          }
         }
       }
     }

@@ -16,7 +16,7 @@
         "maxTurns": 10,
         "minDelayMs": 1500,
         "noContinueWhileChildrenActive": true,
-        "noInterruptOnUserMessage": true,
+        "noInterruptOnUserMessage": false,
         "noProgressTokenThreshold": 50,
         "noProgressTurnsBeforePause": 2,
         "noToolCallTurnsBeforePause": 2,
@@ -43,7 +43,7 @@
   "lsp": true,
   "formatter": true,
   "model": "lmstudio/qwen/qwen3.6-35b-a3b",
-  "small_model": "lmstudio/qwen3.5-4b",
+  "small_model": "lmstudio/ling-3.0-tiny",
   "enabled_providers": [
     "lmstudio",
     // "openrouter"
@@ -69,6 +69,24 @@
             "context": 131072,
             "output": 65536
           },
+        },
+        "ai9stars_g9v3-3b": {
+          "name": "Ai9stars G9v3 3B",
+          "tool_call": false,
+          "reasoning": false,
+          "limit": {
+            "context": 131072,
+            "output": 65536
+          }
+        },
+        "g9v3-39a5b-q3q4": {
+          "name": "Ai9stars G9v3 39A5b",
+          "tool_call": false,
+          "reasoning": false,
+          "limit": {
+            "context": 131072,
+            "output": 65536
+          }
         },
         "nvidia-nemotron-3.5-lightning-30b-a3b": {
           "name": "Nvidia Nemotron 3.5 Lightning 30B A3b",

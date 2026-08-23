@@ -15,7 +15,7 @@ foreach ($item in $rawJson) {
     elseif ($item.context_length) { $context = [int]$item.context_length }
 
     $toolCall = [bool]($item.trainedForToolUse -or $item.tool_use)
-    if (-not $toolCall) { continue }
+    # if (-not $toolCall) { continue }
     $isReasoning = [bool]($item.reasoning -or $identifier -match "thinking|reasoning")
 
     $cleanName = ($identifier -split '/')[-1] -replace '[-_]', ' '

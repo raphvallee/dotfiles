@@ -4,15 +4,16 @@
     "ANTHROPIC_API_KEY": "",
     "CLAUDE_CODE_ENABLE_GATEWAY_MODEL_DISCOVERY": "1",
     "CLAUDE_CODE_SKIP_FAST_MODE_ORG_CHECK": "1",
-    "ANTHROPIC_DEFAULT_FABLE_MODEL": "deepseek/deepseek-v4-flash-0731[1m]",
-    "ANTHROPIC_DEFAULT_OPUS_MODEL": "deepseek/deepseek-v4-flash-0731[1m]",
-    "ANTHROPIC_DEFAULT_SONNET_MODEL": "deepseek/deepseek-v4-flash-0731[1m]",
-    "ANTHROPIC_DEFAULT_HAIKU_MODEL": "deepseek/deepseek-v4-flash-0731[1m]",
-    "CLAUDE_CODE_SUBAGENT_MODEL": "deepseek/deepseek-v4-flash-0731[1m]"
+    "ANTHROPIC_DEFAULT_FABLE_MODEL": "openai/gpt-5.6-luna",
+    "ANTHROPIC_DEFAULT_OPUS_MODEL": "openai/gpt-5.6-luna",
+    "ANTHROPIC_DEFAULT_SONNET_MODEL": "openai/gpt-5.6-luna",
+    "ANTHROPIC_DEFAULT_HAIKU_MODEL": "openai/gpt-5.6-luna",
+    "CLAUDE_CODE_SUBAGENT_MODEL": "openai/gpt-5.6-luna"
   },
   "permissions": {
     "defaultMode": "auto"
   },
+  "model": "opus",
   "worktree": {
     "baseRef": "fresh"
   },
@@ -43,7 +44,6 @@
       "autoUpdate": true
     }
   },
-  "effortLevel": "medium",
   "askUserQuestionTimeout": "never",
   "autoUpdatesChannel": "stable",
   "minimumVersion": "2.1.229",

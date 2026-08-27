@@ -253,7 +253,6 @@
       }
     },
     "openrouter": {
-      "npm": "@ai-sdk/openrouter",
       "name": "OpenRouter",
       "whitelist": [
         "openai/gpt-5.6-luna",

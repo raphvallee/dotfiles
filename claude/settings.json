@@ -4,11 +4,11 @@
     "ANTHROPIC_API_KEY": "",
     "CLAUDE_CODE_ENABLE_GATEWAY_MODEL_DISCOVERY": "1",
     "CLAUDE_CODE_SKIP_FAST_MODE_ORG_CHECK": "1",
-    "ANTHROPIC_DEFAULT_FABLE_MODEL": "openai/gpt-5.6-luna",
-    "ANTHROPIC_DEFAULT_OPUS_MODEL": "openai/gpt-5.6-luna",
-    "ANTHROPIC_DEFAULT_SONNET_MODEL": "openai/gpt-5.6-luna",
-    "ANTHROPIC_DEFAULT_HAIKU_MODEL": "openai/gpt-5.6-luna",
-    "CLAUDE_CODE_SUBAGENT_MODEL": "openai/gpt-5.6-luna"
+    "ANTHROPIC_DEFAULT_FABLE_MODEL": "openai/gpt-5.6-luna[1m]",
+    "ANTHROPIC_DEFAULT_OPUS_MODEL": "openai/gpt-5.6-luna[1m]",
+    "ANTHROPIC_DEFAULT_SONNET_MODEL": "openai/gpt-5.6-luna[1m]",
+    "ANTHROPIC_DEFAULT_HAIKU_MODEL": "openai/gpt-5.6-luna[1m]",
+    "CLAUDE_CODE_SUBAGENT_MODEL": "openai/gpt-5.6-luna[1m]"
   },
   "permissions": {
     "defaultMode": "auto"
@@ -26,7 +26,12 @@
   "enabledPlugins": {
     "mac-storage-cleaner@mac-storage-cleaner": false,
     "ralph-loop@claude-plugins-official": true,
-    "caveman@caveman": true
+    "caveman@caveman": true,
+    "context7@claude-plugins-official": true,
+    "claude-code-setup@claude-plugins-official": true,
+    "frontend-design@claude-plugins-official": true,
+    "claude-security@claude-plugins-official": true,
+    "skill-creator@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
     "caveman": {

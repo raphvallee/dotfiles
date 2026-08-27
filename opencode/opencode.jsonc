@@ -21,7 +21,7 @@
         "noProgressTurnsBeforePause": 2,
         "noToolCallTurnsBeforePause": 2,
         "persistState": true,
-        "registerAgents": true,
+        "registerAgents": false,
         "registerCommand": true,
         "registerTools": true,
         "resultRetentionMs": 604800000,
@@ -46,7 +46,7 @@
   "small_model": "lmstudio/ling-3.0-tiny",
   "enabled_providers": [
     "lmstudio",
-    // "openrouter"
+    "openrouter"
   ],
   "autoupdate": true,
   "provider": {
@@ -68,7 +68,7 @@
           "limit": {
             "context": 131072,
             "output": 65536
-          },
+          }
         },
         "ai9stars_g9v3-3b": {
           "name": "Ai9stars G9v3 3B",
@@ -251,10 +251,81 @@
           }
         }
       }
+    },
+    "openrouter": {
+      "npm": "@ai-sdk/openrouter",
+      "name": "OpenRouter",
+      "whitelist": [
+        "openai/gpt-5.6-luna",
+        "z-ai/glm-5.3-flash",
+        "openai/gpt-5.6-sol"
+      ],
+      "models": {
+        "openai/gpt-5.6-luna": {
+          "name": "1- GPT-5.6 Luna",
+          "tool_call": true,
+          "reasoning": true,
+          "limit": {
+            "context": 400000,
+            "output": 128000
+          },
+          "cost": {
+            "input": 0.20,
+            "output": 1.20
+          },
+          "variants": {
+            "low (1.1)": {
+              "reasoningEffort": "low",
+            },
+            "medium (1.2)": {
+              "reasoningEffort": "medium",
+            },
+            "high (1.3)": {
+              "reasoningEffort": "high",
+            },
+            "xhigh (1.4)": {
+              "reasoningEffort": "xhigh",
+            },
+            "max (1.5)": {
+              "reasoningEffort": "max",
+            },
+          },
+        },
+        "z-ai/glm-5.3-flash": {
+          "name": "2- GLM-5.3-Flash",
+          "tool_call": true,
+          "reasoning": true,
+          "limit": {
+            "context": 400000,
+            "output": 131072
+          },
+          "cost": {
+            "input": 0.15,
+            "output": 0.5
+          }
+        },
+        "openai/gpt-5.6-sol": {
+          "name": "3- GPT-5.6 Sol (xhigh)",
+          "tool_call": true,
+          "reasoning": true,
+          "limit": {
+            "context": 400000,
+            "output": 128000
+          },
+          "cost": {
+            "input": 4,
+            "output": 20
+          },
+          "variants": {
+            "xhigh (7)": {
+              "reasoningEffort": "xhigh",
+            }
+          },
+        }
+      }
     }
   },
   "permission": {
-    // .env reads without prompts
     "read": {
       ".env": "allow",
       ".env.*": "allow",
@@ -271,5 +342,5 @@
       "rm -rf ~/*": "deny",
       ":(){:|:&};:": "deny"
     }
-  },
+  }
 }

@@ -1,0 +1,1 @@
+Build a plan with me on how to fix each issue. Give me a minimum of 2 choices per issue and i will help you build the plan.

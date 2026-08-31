@@ -4,11 +4,11 @@
     "ANTHROPIC_API_KEY": "",
     "CLAUDE_CODE_ENABLE_GATEWAY_MODEL_DISCOVERY": "1",
     "CLAUDE_CODE_SKIP_FAST_MODE_ORG_CHECK": "1",
-    "ANTHROPIC_DEFAULT_FABLE_MODEL": "z-ai/glm-5.3-flash",
-    "ANTHROPIC_DEFAULT_OPUS_MODEL": "z-ai/glm-5.3-flash",
-    "ANTHROPIC_DEFAULT_SONNET_MODEL": "z-ai/glm-5.3-flash",
-    "ANTHROPIC_DEFAULT_HAIKU_MODEL": "z-ai/glm-5.3-flash",
-    "CLAUDE_CODE_SUBAGENT_MODEL": "z-ai/glm-5.3-flash"
+    "ANTHROPIC_DEFAULT_FABLE_MODEL": "z-ai/glm-5.3-flash[1m]",
+    "ANTHROPIC_DEFAULT_OPUS_MODEL": "z-ai/glm-5.3-flash[1m]",
+    "ANTHROPIC_DEFAULT_SONNET_MODEL": "z-ai/glm-5.3-flash[1m]",
+    "ANTHROPIC_DEFAULT_HAIKU_MODEL": "z-ai/glm-5.3-flash[1m]",
+    "CLAUDE_CODE_SUBAGENT_MODEL": "z-ai/glm-5.3-flash[1m]"
   },
   "permissions": {
     "defaultMode": "auto"
@@ -49,7 +49,7 @@
       "autoUpdate": true
     }
   },
-  "effortLevel": "xhigh",
+  "effortLevel": "max",
   "askUserQuestionTimeout": "never",
   "autoUpdatesChannel": "stable",
   "minimumVersion": "2.1.229",

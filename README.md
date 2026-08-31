@@ -32,9 +32,3 @@ export ANTHROPIC_AUTH_TOKEN="$OPENROUTER_API_KEY"
 ```
 
 ## OpenCode
-
-### Oh My OpenAgent
-
-``` powershell
-bunx oh-my-openagent install
-```

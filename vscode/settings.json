@@ -19,7 +19,7 @@
   "files.defaultLanguage": "",
   "workbench.productIconTheme": "jetbrains-product-icon-theme",
   "workbench.startupEditor": "newUntitledFile",
-  "workbench.colorTheme": "dark-jetbrains-color-theme",
+  "workbench.colorTheme": "JetBrains New Dark",
   "workbench.iconTheme": "jetbrains-file-icon-theme-dark",
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
@@ -221,8 +221,5 @@
   },
   "[python]": {
     "editor.formatOnType": true
-  },
-  "[yaml]": {
-    "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
   }
 }

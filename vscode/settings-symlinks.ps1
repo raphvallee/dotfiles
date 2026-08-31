@@ -1,6 +1,11 @@
-# Define paths using environment variables for portability
-$sourceFile = "$env:USERPROFILE\dotfiles\vscode\settings.json"
-$targetFile = "$env:APPDATA\Code\User\settings.json"
+# Determine paths based on operating system
+if ($IsMacOS) {
+    $sourceFile = "$HOME/dotfiles/vscode/settings.json"
+    $targetFile = "$HOME/Library/Application Support/Code/User/settings.json"
+} else {
+    $sourceFile = "$HOME\dotfiles\vscode\settings.json"
+    $targetFile = "$env:APPDATA\Code\User\settings.json"
+}
 
 # Ensure the parent target directory exists
 $targetDir = Split-Path -Path $targetFile -Parent

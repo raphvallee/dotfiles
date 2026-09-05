@@ -13,7 +13,6 @@
   "permissions": {
     "defaultMode": "auto"
   },
-  "model": "opus",
   "worktree": {
     "baseRef": "fresh"
   },
@@ -53,6 +52,7 @@
   "askUserQuestionTimeout": "never",
   "autoUpdatesChannel": "stable",
   "minimumVersion": "2.1.229",
+  "autoMemoryEnabled": true,
   "theme": "dark",
   "editorMode": "normal",
   "verbose": false,

@@ -31,7 +31,7 @@ experiment from this skill.
 5. Cite trace ids and exact time windows used. Do not claim a cause from an
    aggregate alone.
 
-## Step 1 — Load context
+## Step 1 - Load context
 
 Prefer MCP:
 
@@ -49,7 +49,7 @@ caveman cloud projects list
 Stop if login or project selection is missing. Ask the user to run
 `caveman login` or select a project; never guess.
 
-## Step 2 — Establish baseline
+## Step 2 - Establish baseline
 
 Use `caveman_report` for:
 
@@ -72,7 +72,7 @@ caveman cloud plan --json
 
 State report window and basis before interpreting direction.
 
-## Step 3 — Test the leading explanation with traces
+## Step 3 - Test the leading explanation with traces
 
 Use `caveman_trace_search`. Choose a bounded window and closed filters:
 workflow, agent, model, provider, error code, runtime mode, cache status,
@@ -81,10 +81,10 @@ monitor verdict.
 
 Useful groupings:
 
-- `workflow` — find jobs driving cost or failures;
-- `model` — compare model mix;
-- `session` — isolate retry or loop behavior;
-- ungrouped — identify exact traces.
+- `workflow` - find jobs driving cost or failures;
+- `model` - compare model mix;
+- `session` - isolate retry or loop behavior;
+- ungrouped - identify exact traces.
 
 Compare a suspect cohort with a control cohort or earlier bounded window.
 Do not infer causality from one expensive trace.
@@ -101,7 +101,7 @@ caveman cloud traces search \
   --limit 25
 ```
 
-## Step 4 — Inspect representative traces
+## Step 4 - Inspect representative traces
 
 Call `caveman_trace_get` for a small number of high-signal trace ids. Inspect
 request and span metadata, latency, status, token counts, cache state, applied
@@ -113,7 +113,7 @@ CLI fallback:
 caveman cloud traces show <trace-id> --spans
 ```
 
-## Step 5 — Report
+## Step 5 - Report
 
 Use this shape:
 
@@ -126,8 +126,8 @@ Verified savings: <ledger value, kept separate>
 Inferred headroom: <per-day band, kept separate>
 
 Findings:
-1. <finding> — <aggregate evidence> — traces <ids>
-2. <finding> — <aggregate evidence> — traces <ids>
+1. <finding> - <aggregate evidence> - traces <ids>
+2. <finding> - <aggregate evidence> - traces <ids>
 
 Unproven:
 - <plausible explanation lacking a control, trace, or eval>

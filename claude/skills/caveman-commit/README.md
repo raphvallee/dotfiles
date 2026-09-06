@@ -4,7 +4,7 @@ Terse Conventional Commits. Why over what.
 
 ## What it does
 
-Generates commit messages in Conventional Commits format. Subject ≤50 chars, hard cap 72. Imperative mood. Body only when the *why* is non-obvious or there are breaking changes. No AI attribution, no "this commit does X", no emoji unless the project uses them. Body always required for breaking changes, security fixes, data migrations, and reverts — future debuggers need the context.
+Generates commit messages in Conventional Commits format. Subject ≤50 chars, hard cap 72. Imperative mood. Body only when the *why* is non-obvious or there are breaking changes. No AI attribution, no "this commit does X", no emoji unless the project uses them. Body always required for breaking changes, security fixes, data migrations, and reverts - future debuggers need the context.
 
 Outputs only the message. Does not stage, commit, or amend.
 
@@ -40,5 +40,5 @@ before 2026-06-01. Old route returns 410 after that date.
 
 ## See also
 
-- [`SKILL.md`](./SKILL.md) — full LLM-facing instructions
-- [Caveman README](../../README.md) — repo overview
+- [`SKILL.md`](./SKILL.md) - full LLM-facing instructions
+- [Caveman README](../../README.md) - repo overview

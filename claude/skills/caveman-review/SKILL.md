@@ -11,20 +11,20 @@ Write code review comments terse and actionable. One line per finding. Location,
 
 ## Rules
 
-**Format:** `L<line>: <problem>. <fix>.` — or `<file>:L<line>: ...` when reviewing multi-file diffs.
+**Format:** `L<line>: <problem>. <fix>.` - or `<file>:L<line>: ...` when reviewing multi-file diffs.
 
 **Severity prefix (optional, when mixed):**
-- `🔴 bug:` — broken behavior, will cause incident
-- `🟡 risk:` — works but fragile (race, missing null check, swallowed error)
-- `🔵 nit:` — style, naming, micro-optim. Author can ignore
-- `❓ q:` — genuine question, not a suggestion
+- `🔴 bug:` - broken behavior, will cause incident
+- `🟡 risk:` - works but fragile (race, missing null check, swallowed error)
+- `🔵 nit:` - style, naming, micro-optim. Author can ignore
+- `❓ q:` - genuine question, not a suggestion
 
 **Drop:**
 - "I noticed that...", "It seems like...", "You might want to consider..."
-- "This is just a suggestion but..." — use `nit:` instead
-- "Great work!", "Looks good overall but..." — say it once at the top, not per comment
-- Restating what the line does — the reviewer can read the diff
-- Hedging ("perhaps", "maybe", "I think") — if unsure use `q:`
+- "This is just a suggestion but..." - use `nit:` instead
+- "Great work!", "Looks good overall but..." - say it once at the top, not per comment
+- Restating what the line does - the reviewer can read the diff
+- Hedging ("perhaps", "maybe", "I think") - if unsure use `q:`
 
 **Keep:**
 - Exact line numbers
@@ -52,4 +52,4 @@ Drop terse mode for: security findings (CVE-class bugs need full explanation + r
 
 ## Boundaries
 
-Reviews only — does not write the code fix, does not approve/request-changes, does not run linters. Output the comment(s) ready to paste into the PR. "stop caveman-review" or "normal mode": revert to verbose review style.
+Reviews only - does not write the code fix, does not approve/request-changes, does not run linters. Output the comment(s) ready to paste into the PR. "stop caveman-review" or "normal mode": revert to verbose review style.

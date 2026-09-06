@@ -1,67 +1,68 @@
 {
-	"env": {
-		"ANTHROPIC_BASE_URL": "https://openrouter.ai/api",
-		"ANTHROPIC_API_KEY": "",
-		"CLAUDE_CODE_ENABLE_GATEWAY_MODEL_DISCOVERY": "1",
-		"CLAUDE_CODE_SKIP_FAST_MODE_ORG_CHECK": "1",
-		"ANTHROPIC_DEFAULT_FABLE_MODEL": "z-ai/glm-5.3-flash[1m]",
-		"ANTHROPIC_DEFAULT_OPUS_MODEL": "z-ai/glm-5.3-flash[1m]",
-		"ANTHROPIC_DEFAULT_SONNET_MODEL": "z-ai/glm-5.3-flash[1m]",
-		"ANTHROPIC_DEFAULT_HAIKU_MODEL": "z-ai/glm-5.3-flash[1m]",
-		"CLAUDE_CODE_SUBAGENT_MODEL": "z-ai/glm-5.3-flash[1m]"
-	},
-	"permissions": {
-		"defaultMode": "auto"
-	},
-	"worktree": {
-		"baseRef": "fresh"
-	},
-	"statusLine": {
-		"type": "command",
-		"command": "npx -y ccstatusline@latest",
-		"padding": 0,
-		"refreshInterval": 10
-	},
-	"enabledPlugins": {
-		"mac-storage-cleaner@mac-storage-cleaner": false,
-		"ralph-loop@claude-plugins-official": true,
-		"caveman@caveman": true,
-		"context7@claude-plugins-official": true,
-		"claude-code-setup@claude-plugins-official": true,
-		"frontend-design@claude-plugins-official": true,
-		"claude-security@claude-plugins-official": true,
-		"skill-creator@claude-plugins-official": true,
-		"playwright@claude-plugins-official": true
-	},
-	"extraKnownMarketplaces": {
-		"caveman": {
-			"source": {
-				"source": "github",
-				"repo": "JuliusBrussee/caveman"
-			},
-			"autoUpdate": true
-		},
-		"mac-storage-cleaner": {
-			"source": {
-				"source": "github",
-				"repo": "JubaKitiashvili/mac-storage-cleaner"
-			},
-			"autoUpdate": true
-		}
-	},
-	"askUserQuestionTimeout": "never",
-	"autoUpdatesChannel": "stable",
-	"minimumVersion": "2.1.229",
-	"autoMemoryEnabled": true,
-	"theme": "dark",
-	"editorMode": "normal",
-	"verbose": false,
-	"preferredNotifChannel": "auto",
-	"autoCompactEnabled": true,
-	"switchModelsOnFlag": true,
-	"autoScrollEnabled": true,
-	"fileCheckpointingEnabled": true,
-	"showTurnDuration": true,
-	"terminalProgressBarEnabled": true,
-	"useAutoModeDuringPlan": true
+  "env": {
+    "ANTHROPIC_BASE_URL": "https://openrouter.ai/api",
+    "ANTHROPIC_API_KEY": "",
+    "CLAUDE_CODE_ENABLE_GATEWAY_MODEL_DISCOVERY": "1",
+    "CLAUDE_CODE_SKIP_FAST_MODE_ORG_CHECK": "1",
+    "ANTHROPIC_DEFAULT_FABLE_MODEL": "z-ai/glm-5.3-flash[1m]",
+    "ANTHROPIC_DEFAULT_OPUS_MODEL": "z-ai/glm-5.3-flash[1m]",
+    "ANTHROPIC_DEFAULT_SONNET_MODEL": "z-ai/glm-5.3-flash[1m]",
+    "ANTHROPIC_DEFAULT_HAIKU_MODEL": "z-ai/glm-5.3-flash[1m]",
+    "CLAUDE_CODE_SUBAGENT_MODEL": "z-ai/glm-5.3-flash[1m]"
+  },
+  "permissions": {
+    "defaultMode": "auto"
+  },
+  "worktree": {
+    "baseRef": "fresh"
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "npx -y ccstatusline@latest",
+    "padding": 0,
+    "refreshInterval": 10
+  },
+  "enabledPlugins": {
+    "mac-storage-cleaner@mac-storage-cleaner": false,
+    "ralph-loop@claude-plugins-official": true,
+    "caveman@caveman": true,
+    "context7@claude-plugins-official": true,
+    "claude-code-setup@claude-plugins-official": true,
+    "frontend-design@claude-plugins-official": true,
+    "claude-security@claude-plugins-official": true,
+    "skill-creator@claude-plugins-official": true,
+    "playwright@claude-plugins-official": true
+  },
+  "extraKnownMarketplaces": {
+    "caveman": {
+      "source": {
+        "source": "github",
+        "repo": "JuliusBrussee/caveman"
+      },
+      "autoUpdate": true
+    },
+    "mac-storage-cleaner": {
+      "source": {
+        "source": "github",
+        "repo": "JubaKitiashvili/mac-storage-cleaner"
+      },
+      "autoUpdate": true
+    }
+  },
+  "askUserQuestionTimeout": "never",
+  "autoUpdatesChannel": "stable",
+  "minimumVersion": "2.1.229",
+  "autoMemoryEnabled": true,
+  "theme": "dark",
+  "editorMode": "normal",
+  "verbose": false,
+  "preferredNotifChannel": "auto",
+  "autoCompactEnabled": true,
+  "switchModelsOnFlag": true,
+  "autoScrollEnabled": true,
+  "fileCheckpointingEnabled": true,
+  "showTurnDuration": true,
+  "terminalProgressBarEnabled": true,
+  "useAutoModeDuringPlan": true,
+  "effortLevel": "low"
 }

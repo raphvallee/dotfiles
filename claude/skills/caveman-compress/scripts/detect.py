@@ -17,7 +17,7 @@ SKIP_EXTENSIONS = {
     ".dockerfile", ".makefile", ".csv", ".ini", ".cfg",
 }
 
-# Well-known build/config files that carry no (or a misleading) extension —
+# Well-known build/config files that carry no (or a misleading) extension -
 # `Dockerfile` has no suffix so `.dockerfile` above never matches it, and
 # `CMakeLists.txt` would ride the compressible `.txt` rule. Checked by
 # basename before any extension rule.
@@ -87,7 +87,7 @@ def detect_file_type(filepath: Path) -> str:
     if ext in SKIP_EXTENSIONS:
         return "code" if ext not in {".json", ".yaml", ".yml", ".toml", ".ini", ".cfg", ".env"} else "config"
 
-    # Extensionless files (like CLAUDE.md, TODO) — check content
+    # Extensionless files (like CLAUDE.md, TODO) - check content
     if not ext:
         try:
             text = filepath.read_text(encoding="utf-8", errors="ignore")

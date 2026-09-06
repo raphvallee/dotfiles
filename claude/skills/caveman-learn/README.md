@@ -1,7 +1,7 @@
 # caveman-learn skill
 
 Close the loop on `caveman learn`. The command measures where your agent's tokens
-go; this skill reviews that plan with you and applies the fixes — one approved edit
+go; this skill reviews that plan with you and applies the fixes - one approved edit
 at a time.
 
 ## Install
@@ -30,6 +30,6 @@ not edit user or repository config.
 
 ## Honesty
 
-Everything is `inferred` — no currency, no "verified". Every edit is consent-gated and
+Everything is `inferred` - no currency, no "verified". Every edit is consent-gated and
 reversible, and an offload that would leave the agent unable to recall the content is
 rejected. The analyzer never edits your files; this skill does, only with your yes.

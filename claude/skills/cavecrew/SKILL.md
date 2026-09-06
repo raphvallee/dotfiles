@@ -5,7 +5,7 @@ description: >
   thread WHEN to spawn `cavecrew-investigator` (locate code), `cavecrew-builder`
   (1-2 file edit), or `cavecrew-reviewer` (diff review) instead of doing the
   work inline or using vanilla `Explore`. Subagent output is caveman-compressed
-  so the tool-result injected back into main context is ~60% smaller — main
+  so the tool-result injected back into main context is ~60% smaller - main
   context lasts longer across long sessions.
   Trigger: "delegate to subagent", "use cavecrew", "spawn investigator/builder/reviewer",
   "save context", "compressed agent output".
@@ -38,14 +38,14 @@ What main thread can rely on per agent:
 **`cavecrew-investigator`**
 ```
 <Header>:
-- path:line — `symbol` — short note
+- path:line - `symbol` - short note
 totals: <counts>.
 ```
 Or `No match.` Always file-path-first, line-number-attached, backticked symbols. Safe to grep with `path:\d+`.
 
 **`cavecrew-builder`**
 ```
-<path:line-range> — <change ≤10 words>.
+<path:line-range> - <change ≤10 words>.
 verified: <re-read OK | mismatch @ path:line>.
 ```
 Or one of: `too-big.` / `needs-confirm.` / `ambiguous.` / `regressed.` (terminal first token).
@@ -74,7 +74,7 @@ Skip investigator. Hand exact path:line to `cavecrew-builder` directly.
 
 - Don't use `cavecrew-builder` when you don't already know the file. Spawn investigator first or main thread will eat tokens passing context.
 - Don't chain `cavecrew-investigator → cavecrew-builder` for a 5-file refactor. Builder will return `too-big.` and you'll have wasted a turn.
-- Don't ask `cavecrew-reviewer` for "general feedback" — it returns findings only, no architecture opinions. Use `Code Reviewer` for that.
+- Don't ask `cavecrew-reviewer` for "general feedback" - it returns findings only, no architecture opinions. Use `Code Reviewer` for that.
 - Don't expect prose. Cavecrew output is structured, sometimes terse to the point of cryptic. If a human will read it directly, paraphrase.
 
 ## Auto-clarity (inherited)

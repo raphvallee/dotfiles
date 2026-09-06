@@ -30,7 +30,7 @@ complete lifecycle transition table and evidence gate atomically.
 6. Unknown states and server errors fail closed. Report exact
    `cave_snake_code`.
 
-## Step 1 — Load project and experiment
+## Step 1 - Load project and experiment
 
 Prefer MCP:
 
@@ -52,7 +52,7 @@ caveman cloud experiments results <id>
 
 Stop if login, project, experiment, or results are unavailable.
 
-## Step 2 — Evaluate evidence
+## Step 2 - Evaluate evidence
 
 Report:
 
@@ -67,15 +67,15 @@ Report:
 Absence is not a pass. If a required field is absent, state
 `evidence incomplete` and do not propose approval.
 
-## Step 3 — Propose one action
+## Step 3 - Propose one action
 
 Allowed actions:
 
-- `start` — only from a startable draft or queued state with configured graders;
-- `approve` — only with complete passing evidence and a safety class the
+- `start` - only from a startable draft or queued state with configured graders;
+- `approve` - only with complete passing evidence and a safety class the
   current role may approve;
-- `cancel` — stop a non-active experiment the user no longer wants;
-- `rollback` — revert an active or harmful change through the server's linked
+- `cancel` - stop a non-active experiment the user no longer wants;
+- `rollback` - revert an active or harmful change through the server's linked
   policy path. Current deployments may reject this honestly with
   `cave_not_implemented`; never describe that response as a rollback.
 
@@ -90,13 +90,13 @@ Execution: blocked until server-authoritative lifecycle and evidence gates ship.
 Do not treat earlier generic statements such as "manage it" or "do what is best"
 as mutation approval.
 
-## Step 4 — Block unsafe execution
+## Step 4 - Block unsafe execution
 
 Do not emit or run an executable lifecycle command. Explain that current server
 does not yet enforce every evidence/state transition atomically. CLI and MCP
 agent surfaces therefore expose experiment reads only.
 
-## Step 5 — Re-read after external operator action
+## Step 5 - Re-read after external operator action
 
 If operator says they executed command, read detail and results again. Report
 server-observed post-state, audit or result response, and any policy-delivery

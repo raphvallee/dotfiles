@@ -8,7 +8,7 @@ Generates code review comments in `L<line>: <severity> <problem>. <fix>.` format
 
 Auto-clarity: drops terse mode for CVE-class security findings, architectural disagreements, and onboarding contexts where the author needs the *why*. Resumes terse for the rest.
 
-Output only — does not approve, request changes, or run linters.
+Output only - does not approve, request changes, or run linters.
 
 ## How to invoke
 
@@ -29,5 +29,5 @@ L107: ❓ q: why drop the cache here? Reads on next request will miss.
 
 ## See also
 
-- [`SKILL.md`](./SKILL.md) — full LLM-facing instructions
-- [Caveman README](../../README.md) — repo overview
+- [`SKILL.md`](./SKILL.md) - full LLM-facing instructions
+- [Caveman README](../../README.md) - repo overview

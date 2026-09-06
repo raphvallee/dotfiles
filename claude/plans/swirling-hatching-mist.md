@@ -78,5 +78,5 @@ bun add -d @types/d3-geo @types/topojson-client
 
 - MB name ambiguity → wrong resolution cached; mitigation: `mbid`+resolvedName stored (future override UI possible), Clear cache escape hatch.
 - Groups often lack `begin_area` → many country-precision points; legend sets expectation ("birth/foundation place; groups fall back to country").
-- Long tail ≈ 1.5–3k artists → 25–50 min at 1 req/s; cancelable, resumable, live display.
+- Long tail ≈ 1.5-3k artists → 25-50 min at 1 req/s; cancelable, resumable, live display.
 - Geocode without country hint → wrong-city risk; ADM classification caps damage.

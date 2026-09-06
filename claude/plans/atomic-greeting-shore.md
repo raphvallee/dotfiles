@@ -1,6 +1,6 @@
 # Context
 
-Milestones 5–8 remain unfinished in `RefinementPlan.md`. They span calendar layout, shared validation across existing forms, an additive/time-aware gym multiplier model, and hydrated user-defined Feed graphs. Current code already has reusable seams: pure calendar math in `lib/pages/history/calendar_grid.dart`, `LineChart` and `AnalyticsService`, injected repositories, and `SettingsCubit` hydration. Implementation must proceed in dependency order so M8 consumes final M7 analytics behavior, while preserving existing data and generated-code CI checks.
+Milestones 5-8 remain unfinished in `RefinementPlan.md`. They span calendar layout, shared validation across existing forms, an additive/time-aware gym multiplier model, and hydrated user-defined Feed graphs. Current code already has reusable seams: pure calendar math in `lib/pages/history/calendar_grid.dart`, `LineChart` and `AnalyticsService`, injected repositories, and `SettingsCubit` hydration. Implementation must proceed in dependency order so M8 consumes final M7 analytics behavior, while preserving existing data and generated-code CI checks.
 
 # Plan
 

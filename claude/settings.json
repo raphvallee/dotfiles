@@ -49,6 +49,7 @@
       "autoUpdate": true
     }
   },
+  "effortLevel": "high",
   "askUserQuestionTimeout": "never",
   "autoUpdatesChannel": "stable",
   "minimumVersion": "2.1.229",
@@ -63,6 +64,5 @@
   "fileCheckpointingEnabled": true,
   "showTurnDuration": true,
   "terminalProgressBarEnabled": true,
-  "useAutoModeDuringPlan": true,
-  "effortLevel": "low"
+  "useAutoModeDuringPlan": true
 }

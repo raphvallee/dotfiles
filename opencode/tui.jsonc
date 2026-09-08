@@ -21,5 +21,8 @@
         "notifications": true,
         "sound": true,
         "volume": 0.4
-    }
+    },
+    "plugin": [
+      "oc-tps@latest"
+    ]
 }

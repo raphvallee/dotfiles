@@ -8,18 +8,18 @@
 				"commandName": "goal",
 				"goalAgentName": "goal",
 				"lifecycleMessages": true,
-				"maxDurationMs": 900000,
-				"maxPromptFailures": 3,
+				"maxDurationMs": 7200000,
+				"maxPromptFailures": 5,
 				"maxRecentMessages": 50,
 				"maxStoredResults": 200,
-				"maxTokens": 200000,
-				"maxTurns": 10,
+				"maxTokens": 100000000,
+				"maxTurns": 200,
 				"minDelayMs": 1500,
 				"noContinueWhileChildrenActive": true,
 				"noInterruptOnUserMessage": false,
 				"noProgressTokenThreshold": 50,
-				"noProgressTurnsBeforePause": 2,
-				"noToolCallTurnsBeforePause": 2,
+				"noProgressTurnsBeforePause": 5,
+				"noToolCallTurnsBeforePause": 5,
 				"persistState": true,
 				"registerAgents": false,
 				"registerCommand": true,
@@ -42,20 +42,24 @@
 	},
 	"lsp": true,
 	"formatter": true,
-	"model": "lmstudio/qwen/qwen3.6-35b-a3b",
-	"small_model": "lmstudio/ling-3.0-tiny",
+	"model": "llamacpp-g9v3/Qwen3.6-35B-A3B-Uncensored-Q4_K_M",
 	"enabled_providers": [
-		"lmstudio",
+		// "lmstudio",
 		"llamacpp-g9v3",
 		// "openrouter",
 	],
+	"username": "Raph",
+	"shell": "pwsh",
 	"autoupdate": true,
 	"provider": {
 		"lmstudio": {
 			"npm": "@ai-sdk/openai-compatible",
 			"name": "LM Studio (local)",
 			"options": {
-				"baseURL": "http://192.168.1.145:25568/v1"
+				"baseURL": "http://192.168.1.145:25568/v1",
+				"timeout": 900000, // default = 300000 (5m)
+				"headerTimeout": 900000, // default = 300000 (5m)
+				"chunkTimeout": 900000 // default = 300000 (5m)
 			},
 			"models": {
 				"qwen/qwen3.6-35b-a3b": {
@@ -327,7 +331,10 @@
 		"llamacpp-g9v3": {
 			"name": "llamacpp-g9v3",
 			"options": {
-				"baseURL": "http://127.0.0.1:8080/v1"
+				"baseURL": "http://127.0.0.1:8080/v1",
+				"timeout": 900000, // default = 300000 (5m)
+				"headerTimeout": 900000, // default = 300000 (5m)
+				"chunkTimeout": 900000 // default = 300000 (5m)
 			},
 			"models": {
 				"G9v3-39A5B-Q4_K_M": {
@@ -352,6 +359,38 @@
 							"reasoningEffort": "max",
 						},
 					},
+				},
+				"Qwen3.6-35B-A3B-Uncensored-Q4_K_M": {
+					"name": "Qwen3.6 35B A3B Uncensored Q4_K_M",
+					"tool_call": true,
+					"reasoning": true,
+					"options": {
+						"temperature": 1.0,
+						"top_p": 0.95,
+						"top_k": 20,
+						"min_p": 0,
+						"presence_penalty": 1.5
+					},
+					"limit": {
+						"context": 131072,
+						"output": 65536
+					},
+					"variants": {
+						"coding": {
+							"reasoningEffort": "max",
+							"options": {
+								"temperature": 0.6,
+								"top_p": 0.95,
+								"top_k": 20,
+								"min_p": 0,
+								"presence_penalty": 1.5,
+								"thinking": {
+									"type": "enabled",
+									"budgetTokens": 16000,
+								},
+							},
+						},
+					},
 				}
 			}
 		}
@@ -368,7 +407,7 @@
 			".env.*": "allow",
 			".env-*": "allow"
 		},
-		"external_directory": "allow",
+		"external_directory": "deny",
 		"bash": {
 			"git push": "allow",
 			"git push *": "allow",

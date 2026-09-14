@@ -332,9 +332,9 @@
 			"name": "llamacpp-g9v3",
 			"options": {
 				"baseURL": "http://127.0.0.1:8080/v1",
-				"timeout": 900000, // default = 300000 (5m)
-				"headerTimeout": 900000, // default = 300000 (5m)
-				"chunkTimeout": 900000 // default = 300000 (5m)
+				"timeout": 1800000, //30m default = 300000 (5m)
+				"headerTimeout": 1800000, //30m default = 300000 (5m)
+				"chunkTimeout": 1800000 //30m default = 300000 (5m)
 			},
 			"models": {
 				"G9v3-39A5B-Q4_K_M": {
@@ -389,6 +389,36 @@
 									"budgetTokens": 16000,
 								},
 							},
+						},
+					},
+				},
+				"Qwen3.8-27B-Q4_K_M": {
+					"name": "Qwen3.8 27B Q4_K_M",
+					"tool_call": true,
+					"reasoning": true,
+					"options": {
+						"temperature": 1.0,
+						"top_p": 0.95,
+						"top_k": 20,
+						"min_p": 0.0,
+						"presence_penalty": 0.0,
+						"repetition_penalty": 1.0,
+						"enableThinking": true,
+						"preserveThinking": true
+					},
+					"limit": {
+						"context": 65536,
+						"output": 65536
+					},
+					"variants": {
+						"xhigh": {
+							"reasoningEffort": "xhigh",
+						},
+						"medium": {
+							"reasoningEffort": "medium",
+						},
+						"low": {
+							"reasoningEffort": "low",
 						},
 					},
 				}

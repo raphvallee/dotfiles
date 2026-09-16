@@ -6,11 +6,12 @@
 		"CLAUDE_CODE_SKIP_FAST_MODE_ORG_CHECK": "1",
 		"BASH_DEFAULT_TIMEOUT_MS": "1800000",
 		"BASH_MAX_TIMEOUT_MS": "7200000",
-		"ANTHROPIC_DEFAULT_FABLE_MODEL": "z-ai/glm-5.3-flash[1m]",
-		"ANTHROPIC_DEFAULT_OPUS_MODEL": "z-ai/glm-5.3-flash[1m]",
-		"ANTHROPIC_DEFAULT_SONNET_MODEL": "z-ai/glm-5.3-flash[1m]",
-		"ANTHROPIC_DEFAULT_HAIKU_MODEL": "z-ai/glm-5.3-flash[1m]",
-		"CLAUDE_CODE_SUBAGENT_MODEL": "z-ai/glm-5.3-flash[1m]"
+		"ANTHROPIC_DEFAULT_FABLE_MODEL": "stealth/union-alpha",
+		"ANTHROPIC_DEFAULT_OPUS_MODEL": "stealth/union-alpha",
+		"ANTHROPIC_DEFAULT_SONNET_MODEL": "stealth/union-alpha",
+		"ANTHROPIC_DEFAULT_HAIKU_MODEL": "stealth/union-alpha",
+		"CLAUDE_CODE_SUBAGENT_MODEL": "stealth/union-alpha",
+		"CLAUDE_CODE_MAX_CONTEXT_TOKENS": "272000"
 	},
 	"permissions": {
 		"defaultMode": "auto"

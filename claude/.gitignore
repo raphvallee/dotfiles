@@ -13,6 +13,7 @@ usage-data
 
 # Internal State & Status
 .caveman-active
+.caveman-sessions
 .claude.json
 .claude.json.backup.*
 .last-cleanup

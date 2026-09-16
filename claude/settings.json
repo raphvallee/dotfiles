@@ -1,4 +1,5 @@
 {
+	"$schema": "https://json.schemastore.org/claude-code-settings.json",
 	"env": {
 		"ANTHROPIC_BASE_URL": "https://openrouter.ai/api",
 		"ANTHROPIC_API_KEY": "",
@@ -10,8 +11,7 @@
 		"ANTHROPIC_DEFAULT_OPUS_MODEL": "stealth/union-alpha",
 		"ANTHROPIC_DEFAULT_SONNET_MODEL": "stealth/union-alpha",
 		"ANTHROPIC_DEFAULT_HAIKU_MODEL": "stealth/union-alpha",
-		"CLAUDE_CODE_SUBAGENT_MODEL": "stealth/union-alpha",
-		"CLAUDE_CODE_MAX_CONTEXT_TOKENS": "272000"
+		"CLAUDE_CODE_SUBAGENT_MODEL": "stealth/union-alpha"
 	},
 	"permissions": {
 		"defaultMode": "auto"
@@ -52,7 +52,12 @@
 			"autoUpdate": true
 		}
 	},
-	"effortLevel": "max",
+	"effortLevel": "xhigh",
+	"modelSettings": {
+		"stealth/union-alpha": {
+			"effortLevel": "xhigh"
+		}
+	},
 	"askUserQuestionTimeout": "never",
 	"autoUpdatesChannel": "stable",
 	"minimumVersion": "2.1.229",
@@ -67,5 +72,6 @@
 	"fileCheckpointingEnabled": true,
 	"showTurnDuration": true,
 	"terminalProgressBarEnabled": true,
-	"useAutoModeDuringPlan": true
+	"useAutoModeDuringPlan": true,
+	"skipWorkflowUsageWarning": true
 }

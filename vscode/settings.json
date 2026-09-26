@@ -26,6 +26,15 @@
 	"files.autoSaveDelay": 1000,
 	"files.autoSaveWhenNoErrors": false,
 	"files.autoSaveWorkspaceFilesOnly": false,
+	"[ahk2]": {
+		"editor.defaultFormatter": "mark-wiemer.vscode-autohotkey-plus-plus",
+		"editor.quickSuggestions": {
+			"other": true,
+			"comments": false,
+			"strings": true
+		},
+		"runtime": 
+	},
 	"files.defaultLanguage": "",
 	"files.refactoring.autoSave": true,
 	"workbench.productIconTheme": "jetbrains-product-icon-theme",
@@ -58,7 +67,7 @@
 	],
 	"http.proxyStrictSSL": false,
 	"explorer.fileNesting.patterns": {
-		"//": "Last update at 9/12/2026, 8:23:15 PM",
+		"//": "Last update at 9/19/2026, 4:52:20 PM",
 		".agent": ".agent, .claude, .cline, .codebuddy, .codex, .commandcode, .continue, .crush, .cursor, .factory, .gemini, .goose, .junie, .kilocode, .kiro, .kode, .mcpjam, .mux, .neovate, .opencode, .openhands, .pi, .pochi, .qoder, .qwen, .roo, .trae, .windsurf, .zencoder",
 		".clang-tidy": ".clang-format, .clangd, compile_commands.json",
 		".env": "*.env, .env.*, .envrc, env.d.ts",

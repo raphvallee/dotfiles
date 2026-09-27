@@ -23,6 +23,7 @@
         "volume": 0.4
     },
     "plugin": [
-      "oc-tps@latest"
+      "oc-tps@latest",
+	  "opencode-pty"
     ]
 }

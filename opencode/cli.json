@@ -1,0 +1,50 @@
+{
+	"$schema": "https://opencode.ai/v2/cli.json",
+	"theme": {
+    "name": "opencode",
+    "mode": "dark"
+	},
+	"cursor": {
+		"style": "block",
+		"blinking": true
+	},
+	"animations": true,
+	"mouse": true,
+	"scroll": {
+		"speed": 3,
+		"acceleration": true
+	},
+	"diffs": {
+		"wrap": "word",
+		"view": "auto"
+	},
+	"terminal": {
+		"title": true
+	},
+	"prompt": {
+		"editor": false,
+		"paste": "full"
+	},
+	"session": {
+		"sidebar": "auto",
+		"scrollbar": false,
+		"thinking": "hide"
+	},
+	"attention": {
+		"notifications": true,
+		"sound": true,
+		"volume": 0.4
+	},
+	"leader": {
+		"timeout": 2000
+	},
+	"plugins": [
+		"oc-tps@latest",
+		"opencode-pty"
+  ],
+  "debug": {
+    "devtools": true,
+    "timing": false,
+    "turn_tokens": false
+  }
+}

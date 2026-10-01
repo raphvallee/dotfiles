@@ -3,7 +3,7 @@
 	"plugin": [
 		"opencode-pty",
 		[
-			"opencode-goal-plugin",
+			"opencode-goal-plugin@0.11.0",
 			{
 				"budgetWrapupRatio": 0.8,
 				"commandName": "goal",

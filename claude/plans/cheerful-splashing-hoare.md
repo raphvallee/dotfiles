@@ -46,7 +46,7 @@ Separate:
 
 The view model must preserve navigation through loading/error/empty transitions. Repository replacement clears repository-specific caches, while ordinary subtab changes do not reset navigation.
 
-## Commit 1 — Retain calendar state across subtab remounts
+## Commit 1 - Retain calendar state across subtab remounts
 
 Suggested subject: `perf(history): retain calendar presentation state`
 
@@ -64,7 +64,7 @@ Acceptance:
 - [ ] Loading/error/empty transitions do not accidentally reset navigation.
 - [ ] User's existing `_WeekdayLabels` extraction and other calendar edits remain intact.
 
-## Commit 2 — Make date caches correct across midnight and DST
+## Commit 2 - Make date caches correct across midnight and DST
 
 Suggested subject: `fix(history): invalidate calendar state by local date`
 
@@ -84,7 +84,7 @@ Acceptance:
 - [ ] Active midnight and resumed-after-midnight refresh streak without a workout write or full index rebuild.
 - [ ] Timer/lifecycle listeners dispose cleanly and do not duplicate after repeated activation.
 
-## Commit 3 — Replace calendar full-history payloads with dates and scoped rows
+## Commit 3 - Replace calendar full-history payloads with dates and scoped rows
 
 Suggested subject: `perf(history): scope calendar session loading`
 
@@ -106,7 +106,7 @@ Acceptance:
 - [ ] Detail lookup shows current full data or a clear missing/error state.
 - [ ] Slow obsolete requests cannot overwrite newer selection or repository state.
 
-## Commit 4 — Suppress irrelevant date-index and row rebuilds
+## Commit 4 - Suppress irrelevant date-index and row rebuilds
 
 Suggested subject: `perf(history): skip unchanged calendar derivations`
 
@@ -123,7 +123,7 @@ Acceptance:
 - [ ] Date moves and last-session deletion update both affected day/month counts.
 - [ ] Equal session counts with different contents do not bypass invalidation.
 
-## Commit 5 — Stop hidden history subscriptions
+## Commit 5 - Stop hidden history subscriptions
 
 Suggested subject: `perf(history): suspend inactive history queries`
 
@@ -142,7 +142,7 @@ Acceptance:
 - [ ] Repeated hide/show and repository replacement create no duplicate listeners or stale updates.
 - [ ] Month and selection survive inactivity while data catches up correctly.
 
-## Commit 6 — Use one lazy scrolling viewport
+## Commit 6 - Use one lazy scrolling viewport
 
 Suggested subject: `perf(history): render session rows as lazy slivers`
 
@@ -160,7 +160,7 @@ Acceptance:
 - [ ] Navigation, empty messages, detail opening, focus/semantics, and scrolling still work.
 - [ ] Visual and overflow checks pass at 320×568, 800×600, and 1280×720.
 
-## Commit 7 — Isolate selection-dependent rebuilding
+## Commit 7 - Isolate selection-dependent rebuilding
 
 Suggested subject: `perf(history): isolate calendar selection rebuilds`
 

@@ -1,0 +1,11 @@
+/.tmp
+/tmp
+/packages/app-server-daemon
+/app-server-daemon
+/app-server-control
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal
+installation_id
+version.json
+skills/.system/.codex-system-skills.marker

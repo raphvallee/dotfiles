@@ -4,7 +4,7 @@ Milestones 5-8 remain unfinished in `RefinementPlan.md`. They span calendar layo
 
 # Plan
 
-## 1. M6 — shared validation foundation
+## 1. M6 - shared validation foundation
 
 - Add pure validators in `tracker/lib/pages/custom/form_validators.dart` with exact messages `Cannot be empty` and `Must be greater than 0`.
 - Apply them to split title/day title, gym name and positive multiplier, current-workout weight/reps, and the existing exercise form. Keep exercise-picker search unvalidated.
@@ -12,14 +12,14 @@ Milestones 5-8 remain unfinished in `RefinementPlan.md`. They span calendar layo
 - Change split/day/exercise/gym descriptions to multiline auto-growing fields (`minLines: 1`, `maxLines: null`, multiline keyboard).
 - Add unit tests for validator branches and focused widget tests proving invalid values do not save/log and errors render.
 
-## 2. M5 — compact history calendar
+## 2. M5 - compact history calendar
 
 - Preserve `CalendarGrid`, `WorkoutDateIndex`, and streak math contracts.
 - Compact day cells, labels, dots, gaps, and metrics strip in `tracker/lib/pages/history/history_calendar.dart`.
 - Replace plain selected-day `Column` with a finite-height, internally scrolling workout panel so grid remains visible; retain empty states and `SessionDetailPage` navigation.
 - Add HistoryCalendar widget coverage for marked days, selected long lists, bounded internal scrolling, and no layout exceptions.
 
-## 3. M7 — additive multiplier model and analytics
+## 3. M7 - additive multiplier model and analytics
 
 - Extend `tracker/lib/models/gym.dart` with optional per-exercise overrides while retaining global `multiplier` and primary-gym baseline behavior. Verify Isar supports chosen representation; use an embedded/list representation if integer-keyed maps are unsupported.
 - Regenerate `gym.g.dart` with `dart run build_runner build --delete-conflicting-outputs`; run generated drift checks and an old-record/default compatibility test. Never hand-edit generated files.
@@ -29,7 +29,7 @@ Milestones 5-8 remain unfinished in `RefinementPlan.md`. They span calendar layo
 - Update Gyms UI, Progression, Exercise Detail, and `WorkoutCubit.endWorkout` to use the new APIs. Persist completed session before any automatic estimate update; never rewrite primary baseline.
 - Add pure tests for precedence, decay/recent weighting, median/outlier behavior, movement fallback, insufficient data, and warm-up exclusion; add Isar round-trip and end-workout integration coverage.
 
-## 4. M8 — hydrated Feed graphs
+## 4. M8 - hydrated Feed graphs
 
 - Add serializable `GraphConfig` plus metric/timeframe enums under `tracker/lib/models/` or settings. Use enum names in JSON, stable IDs/order, defensive immutable lists, and tolerant malformed-entry parsing.
 - Extend `SettingsState`/`SettingsCubit` with graph hydration and add/update/remove operations. Missing or malformed graph data must not break legacy settings hydration.

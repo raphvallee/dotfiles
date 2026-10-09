@@ -11,14 +11,14 @@ Decisions made with user:
 
 ## Changes
 
-### 1. `internal/gguf/gguf.go` — more signals
+### 1. `internal/gguf/gguf.go` - more signals
 
 Add to `Info` (mirroring `FileType/FileTypeKnown` style):
-- `TokenizerModel string` — `tokenizer.ggml.model` (string switch, gguf.go:110-131). Parsed, currently inert.
-- `TokensCount uint64` + `TokensCountKnown bool` — `tokenizer.ggml.tokens_count` (int switch gguf.go:132-142 already matches types 4/5/10/11).
+- `TokenizerModel string` - `tokenizer.ggml.model` (string switch, gguf.go:110-131). Parsed, currently inert.
+- `TokensCount uint64` + `TokensCountKnown bool` - `tokenizer.ggml.tokens_count` (int switch gguf.go:132-142 already matches types 4/5/10/11).
 - Change `skipArray()` to return `(count uint64, err)`; on key `tokenizer.ggml.tokens`, use array length as `TokensCount` fallback (older GGUFs lack the scalar). Arrays still skipped.
 
-### 2. `internal/hf/names.go` (new) — pure name logic + table tests
+### 2. `internal/hf/names.go` (new) - pure name logic + table tests
 
 - `baseName(info, name)`: `info.Basename` if set; else strip `info.Finetune` suffix (case-insensitive, `-` or `_` separator); else name.
 - `stripQuant(name, seps)`: loop dropping trailing sep-delimited segments while `isJunkSegment`. Split on `-` only for the primary rung (keeps `Q4_K_M` one unit); one fallback rung splits on `-_` (handles `Mistral_7B_Q4_K_M`).
@@ -29,7 +29,7 @@ Add to `Info` (mirroring `FileType/FileTypeKnown` style):
   3. backoff: drop last `-` segment until 2 remain (floor)
 - Delete `searchQuery` + `quantSuffix` regex in hf.go.
 
-### 3. `internal/hf/hf.go` — search/verify/guess rewrite
+### 3. `internal/hf/hf.go` - search/verify/guess rewrite
 
 Constants: `maxQueries=4`, `maxCandidates=10` (global config-fetch budget), `maxVerifyPerRung=4` (per-rung cap so junk rung-1 candidates can't drain the global budget), `minSearchScore=0.5`, vocab: bonus ≤1% rel-diff, reject >10%. Weights: `wPrefix=0.25, wExact=0.10, wVocab=0.15, wDownloads=0.05`. `failMemoTTL=10m`.
 
@@ -37,14 +37,14 @@ Vocab tolerance rationale: HF `vocab_size` is padded vs real token count (Qwen3 
 
 - `Resolver` gains `Store *YamlStore`, `mu sync.Mutex`, `failed map[string]time.Time` (negative memo, TTL 10 min, gates ONLY the network path so runtime `models tokenizer set` takes effect mid-run), `Forget(model)`.
 - `NewResolver(configModels, store, cache)`.
-- `Cache` interface: `GetHFMapping(name) (repo, source string, ok bool, err)` — return stored source so `guess` survives restarts.
+- `Cache` interface: `GetHFMapping(name) (repo, source string, ok bool, err)` - return stored source so `guess` survives restarts.
 - Resolve chain per priority above; yaml Get errors = miss (broken file must not brick resolution); full failure records failMemo and errors with hint text pointing at `models tokenizer`.
-- `search(m) (repo, source string, err error)`: per ladder rung — GET `/api/models?search=<q>&limit=50` (network error = fatal); gate `overlap ≥ minSearchScore`; score = `overlap + wPrefix*prefixBonus + wExact*exactBonus + vocabBonus + downloadsTiebreak` where prefix = candidate name-part tokens (id minus org) are a prefix of the rung's query tokens (derivative pattern: base is head of local name), exact = normalized equality, downloads = `min(log10(dl+1)/6,1)*wDownloads`.
+- `search(m) (repo, source string, err error)`: per ladder rung - GET `/api/models?search=<q>&limit=50` (network error = fatal); gate `overlap ≥ minSearchScore`; score = `overlap + wPrefix*prefixBonus + wExact*exactBonus + vocabBonus + downloadsTiebreak` where prefix = candidate name-part tokens (id minus org) are a prefix of the rung's query tokens (derivative pattern: base is head of local name), exact = normalized equality, downloads = `min(log10(dl+1)/6,1)*wDownloads`.
 - Verification per candidate (skip repos tried this Resolve; per-rung + global budget): `fetchConfig(repo)` returns `{model_type, vocab_size}` (extend `archMatches`). Gate order: ① vocab >10% apart (both known) → reject outright (not guess-eligible); ② arch mismatch/unknown → not verified, stays guess-eligible (normalize strips `_` AND `-`); ③ tokenizer-file presence on prospective winner: HEAD `tokenizer_config.json` → fallback `tokenizer.json` → `tokenizer.model`, 200 = present, 404/401/403 → demote, next candidate. All pass → `store(..., "search")`.
 - After all rungs: guess = best-scoring non-rejected candidate from the earliest rung that produced any (bias to most-specific query) → `store(..., "guess")`. Otherwise record failMemo, return `noMappingErr`.
 - **Remove unconditional `list[0]` fallback.** `noMappingErr` text: point at `models tokenizer <model> <org/repo>` and `hf_models`.
 
-### 4. `internal/hf/tokenizers_yaml.go` (new) — yaml store
+### 4. `internal/hf/tokenizers_yaml.go` (new) - yaml store
 
 - `YamlStore{path, mu, loaded, entries map[string]yamlEntry}`; `yamlEntry{Tokenizer, Source}` keyed lowercased model.
 - `NewYamlStore(path)`, `Get`, `Set` (upsert, source `manual`, overwrites), `Delete` (case-insensitive, returns existed).
@@ -56,13 +56,13 @@ Vocab tolerance rationale: HF `vocab_size` is padded vs real token count (Qwen3 
 - `GetHFMapping` returns `(repo, source string, ok bool, err)`.
 - New `DeleteHFMapping(name)`. No schema change (source column exists).
 
-### 6. `internal/benchmark` — surface guess
+### 6. `internal/benchmark` - surface guess
 
 - `benchmark.go` `EvalParams`: add `HFSource string`.
 - `manager.go`: `ResolveHF func(models.Model) (repo, source string, err error)`; in `runEval` (manager.go:568-584) on `source=="guess"` emit WARN `eval '%s': tokenizer %s is an unverified guess - pin one with 'models tokenizer %s <org/repo>'` once per model per process (`guessWarned map[string]bool` field).
 - `lm_eval.go:68` INFO line appends `" (unverified guess)"`; empty-repo guard message (lm_eval.go:65) mentions `models tokenizer` while keeping substring `hf_models` (asserted by test). Update `manager_test.go` closures.
 
-### 7. `main.go` — wiring + console
+### 7. `main.go` - wiring + console
 
 - Wiring (main.go:88-98): `store := hf.NewYamlStore(filepath.Join(config.Dir(), "tokenizers.yaml"))`; `hf.NewResolver(cfg.HFModels, store, xdb)`; `mgr.ResolveHF` closure returns `(repo, source, err)`.
 - Route `models tokenizer ...` before `listModels`:
@@ -74,7 +74,7 @@ Vocab tolerance rationale: HF `vocab_size` is padded vs real token count (Qwen3 
 
 ## Edge cases covered
 
-Sharded files (Name already strips shard suffix); TheBloke-era GGUFs with only `general.name` (ladder from Name; vocab neutral when unknown); derivative whose own repo is canonical (rung-1 wins — correct, its tokenizer matches the weights); `qwen3moe` vs `qwen3_moe`; misleading `general.basename` (ladder still has Name-derived rungs); underscore quant uploads; gated repos / missing tokenizer files (demote); rate limits (failMemo self-heals); runtime edits mid-run (`Forget`).
+Sharded files (Name already strips shard suffix); TheBloke-era GGUFs with only `general.name` (ladder from Name; vocab neutral when unknown); derivative whose own repo is canonical (rung-1 wins - correct, its tokenizer matches the weights); `qwen3moe` vs `qwen3_moe`; misleading `general.basename` (ladder still has Name-derived rungs); underscore quant uploads; gated repos / missing tokenizer files (demote); rate limits (failMemo self-heals); runtime edits mid-run (`Forget`).
 
 ## Implementation order
 

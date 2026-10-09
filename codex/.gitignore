@@ -9,3 +9,9 @@
 installation_id
 version.json
 skills/.system/.codex-system-skills.marker
+/sessions
+/shell_snapshots
+/tui-thread-reference-capabilities
+.sandbox_migration
+history.jsonl
+session_index.jsonl

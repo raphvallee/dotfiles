@@ -1,2 +1,18 @@
+model_provider = "openrouter"
+model="openai/gpt-6-luna:floor"
+model_reasoning_effort = "xhigh"
+model_context_window = 270000
+
+[model_providers.openrouter]
+name = "openrouter"
+base_url="https://openrouter.ai/api/v1"
+
+[model_providers.openrouter.auth]
+command = "sh"
+args = ["-c", "echo $OPENROUTER_API_KEY"]
+
 [tui]
 screen_reader_detection_done = true
+
+[projects."/Users/raphaelvallee/Documents/Github/flutter-benchmark"]
+trust_level = "trusted"

@@ -17,6 +17,11 @@
 	"editor.cursorSmoothCaretAnimation": "off",
 	"editor.cursorStyle": "line",
 	"editor.cursorSurroundingLines": 3,
+	"markdownlint.config": {
+		"MD041": {
+			"enabled": false
+		}
+	},
 	"editor.fontFamily": "JetBrainsMono Nerd Font",
 	"editor.fontSize": 13,
 	"diffEditor.ignoreTrimWhitespace": true,
@@ -33,7 +38,7 @@
 			"comments": false,
 			"strings": true
 		},
-		"runtime": 
+		"runtime":
 	},
 	"files.defaultLanguage": "",
 	"files.refactoring.autoSave": true,

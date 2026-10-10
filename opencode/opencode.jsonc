@@ -1,66 +1,33 @@
 {
 	"$schema": "https://opencode.ai/config.json",
-	"plugin": [
-		"opencode-pty",
-		[
-			"opencode-goal-plugin@0.11.0",
-			{
-				"budgetWrapupRatio": 0.8,
-				"commandName": "goal",
-				"goalAgentName": "goal",
-				"lifecycleMessages": true,
-				"maxDurationMs": 7200000,
-				"maxPromptFailures": 5,
-				"maxRecentMessages": 50,
-				"maxStoredResults": 200,
-				"maxTokens": 100000000,
-				"maxTurns": 200,
-				"minDelayMs": 1500,
-				"noContinueWhileChildrenActive": true,
-				"noInterruptOnUserMessage": false,
-				"noProgressTokenThreshold": 50,
-				"noProgressTurnsBeforePause": 5,
-				"noToolCallTurnsBeforePause": 5,
-				"persistState": true,
-				"registerAgents": false,
-				"registerCommand": true,
-				"registerTools": true,
-				"resultRetentionMs": 604800000,
-				"stateFilePath": ".opencode/goals/state.json",
-				"verifierAgentName": "goal-verify",
-				"warnDurationMsRemaining": 60000,
-				"warnTokensRemaining": 25000,
-				"warnTurnsRemaining": 3
-			}
-		],
-	],
-	"command": {
-		"goal": {
-			"description": "Set a session-scoped goal and auto-continue until complete.",
-			"template": "$ARGUMENTS",
-			"agent": "build"
-		}
-	},
-	"instructions": [
-		"INSTRUCTIONS.md",
-		"https://raw.githubusercontent.com/JRedeker/opencode-shell-strategy/trunk/shell_strategy.md"
-	],
 	"lsp": true,
 	"formatter": true,
 	"model": "llamacpp-g9v3/Qwen3.6-35B-A3B-Uncensored-Q4_K_M",
-	"enabled_providers": [
-		// "lmstudio",
-		// "llamacpp-g9v3",
-		"openrouter",
-	],
+	"experimental": {
+		// Was V1 enabled_providers: deny every provider, then allow the listed ones.
+		"policies": [
+			{
+				"action": "provider.use",
+				"resource": "*",
+				"effect": "deny"
+			},
+			{
+				"action": "provider.use",
+				"resource": "openrouter",
+				"effect": "allow"
+			},
+			// { "action": "provider.use", "resource": "lmstudio", "effect": "allow" },
+			// { "action": "provider.use", "resource": "llamacpp-g9v3", "effect": "allow" },
+		]
+	},
 	"username": "Raph",
 	"shell": "pwsh",
-	"autoupdate": true,
-	"provider": {
+	"update": "auto",
+	"providers": {
 		"lmstudio": {
-			"npm": "@ai-sdk/openai-compatible",
+			"package": "aisdk:@ai-sdk/openai-compatible",
 			"name": "LM Studio (local)",
-			"options": {
+			"settings": {
 				"baseURL": "http://192.168.1.145:25568/v1",
 				"timeout": 900000, // default = 300000 (5m)
 				"headerTimeout": 900000, // default = 300000 (5m)
@@ -69,9 +36,10 @@
 			"models": {
 				"qwen/qwen3.6-35b-a3b": {
 					"name": "Qwen3.6 35B A3B",
-					"tool_call": true,
-					"reasoning": true,
-					"options": {
+					"capabilities": {
+						"tools": true
+					},
+					"settings": {
 						"enableThinking": true,
 						"preserveThinking": false
 					},
@@ -82,8 +50,9 @@
 				},
 				"ai9stars_g9v3-3b": {
 					"name": "Ai9stars G9v3 3B",
-					"tool_call": false,
-					"reasoning": false,
+					"capabilities": {
+						"tools": false
+					},
 					"limit": {
 						"context": 131072,
 						"output": 65536
@@ -91,8 +60,9 @@
 				},
 				"g9v3-39a5b-q3q4": {
 					"name": "Ai9stars G9v3 39A5b",
-					"tool_call": false,
-					"reasoning": false,
+					"capabilities": {
+						"tools": false
+					},
 					"limit": {
 						"context": 131072,
 						"output": 65536
@@ -100,8 +70,9 @@
 				},
 				"nvidia-nemotron-3.5-lightning-30b-a3b": {
 					"name": "Nvidia Nemotron 3.5 Lightning 30B A3b",
-					"tool_call": true,
-					"reasoning": false,
+					"capabilities": {
+						"tools": true
+					},
 					"limit": {
 						"context": 1048576,
 						"output": 65536
@@ -109,8 +80,9 @@
 				},
 				"ling-3.0-tiny": {
 					"name": "Ling 3.0 Tiny",
-					"tool_call": true,
-					"reasoning": false,
+					"capabilities": {
+						"tools": true
+					},
 					"limit": {
 						"context": 131072,
 						"output": 65536
@@ -118,8 +90,9 @@
 				},
 				"qwen3.5-4b": {
 					"name": "Qwen3.5 4B",
-					"tool_call": true,
-					"reasoning": false,
+					"capabilities": {
+						"tools": true
+					},
 					"limit": {
 						"context": 262144,
 						"output": 65536
@@ -127,8 +100,9 @@
 				},
 				"qwen/qwen3-4b-thinking-2507": {
 					"name": "Qwen3 4B Thinking 2507",
-					"tool_call": true,
-					"reasoning": true,
+					"capabilities": {
+						"tools": true
+					},
 					"limit": {
 						"context": 262144,
 						"output": 65536
@@ -136,8 +110,9 @@
 				},
 				"qwen/qwen3.8-27b": {
 					"name": "Qwen3.8 27B",
-					"tool_call": true,
-					"reasoning": false,
+					"capabilities": {
+						"tools": true
+					},
 					"limit": {
 						"context": 262144,
 						"output": 65536
@@ -145,8 +120,9 @@
 				},
 				"google/gemma-4-26b-a4b": {
 					"name": "Gemma 4 26B A4b",
-					"tool_call": true,
-					"reasoning": false,
+					"capabilities": {
+						"tools": true
+					},
 					"limit": {
 						"context": 262144,
 						"output": 65536
@@ -154,8 +130,9 @@
 				},
 				"google/gemma-4-26b-a4b-qat": {
 					"name": "Gemma 4 26B A4b Qat",
-					"tool_call": true,
-					"reasoning": false,
+					"capabilities": {
+						"tools": true
+					},
 					"limit": {
 						"context": 262144,
 						"output": 65536
@@ -163,8 +140,9 @@
 				},
 				"openai/gpt-oss-20b": {
 					"name": "Gpt Oss 20B",
-					"tool_call": true,
-					"reasoning": false,
+					"capabilities": {
+						"tools": true
+					},
 					"limit": {
 						"context": 131072,
 						"output": 65536
@@ -172,8 +150,9 @@
 				},
 				"qwen/qwen3.5-9b": {
 					"name": "Qwen3.5 9B",
-					"tool_call": true,
-					"reasoning": false,
+					"capabilities": {
+						"tools": true
+					},
 					"limit": {
 						"context": 262144,
 						"output": 65536
@@ -181,8 +160,9 @@
 				},
 				"qwen/qwen3-30b-a3b": {
 					"name": "Qwen3 30B A3b",
-					"tool_call": true,
-					"reasoning": false,
+					"capabilities": {
+						"tools": true
+					},
 					"limit": {
 						"context": 32768,
 						"output": 32768
@@ -190,8 +170,9 @@
 				},
 				"qwen/qwen3-coder-30b": {
 					"name": "Qwen3 Coder 30B",
-					"tool_call": true,
-					"reasoning": false,
+					"capabilities": {
+						"tools": true
+					},
 					"limit": {
 						"context": 262144,
 						"output": 65536
@@ -199,8 +180,9 @@
 				},
 				"qwen/qwen3-30b-a3b-2507": {
 					"name": "Qwen3 30B A3b 2507",
-					"tool_call": true,
-					"reasoning": false,
+					"capabilities": {
+						"tools": true
+					},
 					"limit": {
 						"context": 262144,
 						"output": 65536
@@ -208,8 +190,9 @@
 				},
 				"liquid/lfm2.5-1.2b": {
 					"name": "Lfm2.5 1.2B",
-					"tool_call": true,
-					"reasoning": false,
+					"capabilities": {
+						"tools": true
+					},
 					"limit": {
 						"context": 128000,
 						"output": 32768
@@ -217,8 +200,9 @@
 				},
 				"qwen/qwen3-4b": {
 					"name": "Qwen3 4B",
-					"tool_call": true,
-					"reasoning": false,
+					"capabilities": {
+						"tools": true
+					},
 					"limit": {
 						"context": 32768,
 						"output": 32768
@@ -226,8 +210,9 @@
 				},
 				"qwen/qwen3-1.7b": {
 					"name": "Qwen3 1.7B",
-					"tool_call": true,
-					"reasoning": false,
+					"capabilities": {
+						"tools": true
+					},
 					"limit": {
 						"context": 32768,
 						"output": 32768
@@ -235,8 +220,9 @@
 				},
 				"qwen/qwen3-8b": {
 					"name": "Qwen3 8B",
-					"tool_call": true,
-					"reasoning": false,
+					"capabilities": {
+						"tools": true
+					},
 					"limit": {
 						"context": 32768,
 						"output": 32768
@@ -244,8 +230,9 @@
 				},
 				"google/gemma-4-e2b": {
 					"name": "Gemma 4 E2b",
-					"tool_call": true,
-					"reasoning": false,
+					"capabilities": {
+						"tools": true
+					},
 					"limit": {
 						"context": 131072,
 						"output": 65536
@@ -253,8 +240,9 @@
 				},
 				"google/gemma-4-e4b": {
 					"name": "Gemma 4 E4b",
-					"tool_call": true,
-					"reasoning": false,
+					"capabilities": {
+						"tools": true
+					},
 					"limit": {
 						"context": 131072,
 						"output": 65536
@@ -264,7 +252,7 @@
 		},
 		"llamacpp-g9v3": {
 			"name": "llamacpp-g9v3",
-			"options": {
+			"settings": {
 				"baseURL": "http://127.0.0.1:8080/v1",
 				"timeout": 1800000, //30m default = 300000 (5m)
 				"headerTimeout": 1800000, //30m default = 300000 (5m)
@@ -273,32 +261,46 @@
 			"models": {
 				"G9v3-39A5B-Q4_K_M": {
 					"name": "G9v3 39A5B",
-					"tool_call": true,
-					"reasoning": true,
+					"capabilities": {
+						"tools": true
+					},
 					"limit": {
 						"context": 128000,
 						"output": 65536
 					},
-					"variants": {
-						"low": {
-							"reasoningEffort": "low",
+					"variants": [
+						{
+							"id": "low",
+							"settings": {
+								"reasoningEffort": "low"
+							}
 						},
-						"medium": {
-							"reasoningEffort": "medium",
+						{
+							"id": "medium",
+							"settings": {
+								"reasoningEffort": "medium"
+							}
 						},
-						"high": {
-							"reasoningEffort": "high",
+						{
+							"id": "high",
+							"settings": {
+								"reasoningEffort": "high"
+							}
 						},
-						"max": {
-							"reasoningEffort": "max",
-						},
-					},
+						{
+							"id": "max",
+							"settings": {
+								"reasoningEffort": "max"
+							}
+						}
+					]
 				},
 				"Qwen3.6-35B-A3B-Uncensored-Q4_K_M": {
 					"name": "Qwen3.6 35B A3B Uncensored Q4_K_M",
-					"tool_call": true,
-					"reasoning": true,
-					"options": {
+					"capabilities": {
+						"tools": true
+					},
+					"settings": {
 						"temperature": 1.0,
 						"top_p": 0.95,
 						"top_k": 20,
@@ -309,10 +311,11 @@
 						"context": 131072,
 						"output": 65536
 					},
-					"variants": {
-						"coding": {
-							"reasoningEffort": "max",
-							"options": {
+					"variants": [
+						{
+							"id": "coding",
+							"settings": {
+								"reasoningEffort": "max",
 								"temperature": 0.6,
 								"top_p": 0.95,
 								"top_k": 20,
@@ -320,17 +323,18 @@
 								"presence_penalty": 1.5,
 								"thinking": {
 									"type": "enabled",
-									"budgetTokens": 16000,
-								},
-							},
-						},
-					},
+									"budgetTokens": 16000
+								}
+							}
+						}
+					]
 				},
 				"Qwen3.8-27B-Q4_K_M": {
 					"name": "Qwen3.8 27B Q4_K_M",
-					"tool_call": true,
-					"reasoning": true,
-					"options": {
+					"capabilities": {
+						"tools": true
+					},
+					"settings": {
 						"temperature": 1.0,
 						"top_p": 0.95,
 						"top_k": 20,
@@ -344,17 +348,26 @@
 						"context": 65536,
 						"output": 65536
 					},
-					"variants": {
-						"xhigh": {
-							"reasoningEffort": "xhigh",
+					"variants": [
+						{
+							"id": "xhigh",
+							"settings": {
+								"reasoningEffort": "xhigh"
+							}
 						},
-						"medium": {
-							"reasoningEffort": "medium",
+						{
+							"id": "medium",
+							"settings": {
+								"reasoningEffort": "medium"
+							}
 						},
-						"low": {
-							"reasoningEffort": "low",
-						},
-					},
+						{
+							"id": "low",
+							"settings": {
+								"reasoningEffort": "low"
+							}
+						}
+					]
 				}
 			}
 		},
@@ -366,40 +379,11 @@
 			// 	"openai/gpt-5.6-sol"
 			// ],
 			"models": {
-				"openai/gpt-5.6-luna": {
-					"name": "1- GPT-5.6 Luna",
-					"tool_call": true,
-					"reasoning": true,
-					"limit": {
-						"context": 400000,
-						"output": 128000
-					},
-					"cost": {
-						"input": 0.20,
-						"output": 1.20
-					},
-					"variants": {
-						"low (1.1)": {
-							"reasoningEffort": "low",
-						},
-						"medium (1.2)": {
-							"reasoningEffort": "medium",
-						},
-						"high (1.3)": {
-							"reasoningEffort": "high",
-						},
-						"xhigh (1.4)": {
-							"reasoningEffort": "xhigh",
-						},
-						"max (1.5)": {
-							"reasoningEffort": "max",
-						},
-					},
-				},
 				"z-ai/glm-5.3-flash": {
 					"name": "GLM 5.3 Flash",
-					"tool_call": true,
-					"reasoning": true,
+					"capabilities": {
+						"tools": true
+					},
 					"limit": {
 						"context": 400000,
 						"output": 131072
@@ -408,59 +392,87 @@
 						"input": 0.15,
 						"output": 0.5
 					}
-				},
-				"openai/gpt-5.6-sol": {
-					"name": "3- GPT-5.6 Sol (xhigh)",
-					"tool_call": true,
-					"reasoning": true,
-					"limit": {
-						"context": 400000,
-						"output": 128000
-					},
-					"cost": {
-						"input": 4,
-						"output": 20
-					},
-					"variants": {
-						"xhigh (7)": {
-							"reasoningEffort": "xhigh",
-						}
-					},
 				}
 			}
 		}
 	},
 	"mcp": {
-		"context7": {
-			"type": "remote",
-			"url": "https://mcp.context7.com/mcp"
-		},
-		"playwright": {
-			"type": "local",
-			"command": [
-				"bunx",
-				"-y",
-				"@playwright/mcp@latest"
-			],
-			"enabled": true
+		"servers": {
+			"context7": {
+				"type": "remote",
+				"url": "https://mcp.context7.com/mcp"
+			},
+			"playwright": {
+				"type": "local",
+				"command": [
+					"bunx",
+					"-y",
+					"@playwright/mcp@latest"
+				],
+				"disabled": false
+			}
 		}
 	},
-	"permission": {
-		"read": {
-			".env": "allow",
-			".env.*": "allow",
-			".env-*": "allow"
+	"permissions": [
+		{
+			"action": "read",
+			"resource": ".env",
+			"effect": "allow"
 		},
-		"external_directory": "deny",
-		"bash": {
-			"git push": "allow",
-			"git push *": "allow",
-			"sudo *": "deny",
-			"rm -rf /": "deny",
-			"rm -rf /*": "deny",
-			"rm -rf ~": "deny",
-			"rm -rf ~/*": "deny",
-			":(){:|:&};:": "deny"
+		{
+			"action": "read",
+			"resource": ".env.*",
+			"effect": "allow"
+		},
+		{
+			"action": "read",
+			"resource": ".env-*",
+			"effect": "allow"
+		},
+		{
+			"action": "external_directory",
+			"resource": "*",
+			"effect": "deny"
+		},
+		{
+			"action": "shell",
+			"resource": "git push",
+			"effect": "allow"
+		},
+		{
+			"action": "shell",
+			"resource": "git push *",
+			"effect": "allow"
+		},
+		{
+			"action": "shell",
+			"resource": "sudo *",
+			"effect": "deny"
+		},
+		{
+			"action": "shell",
+			"resource": "rm -rf /",
+			"effect": "deny"
+		},
+		{
+			"action": "shell",
+			"resource": "rm -rf /*",
+			"effect": "deny"
+		},
+		{
+			"action": "shell",
+			"resource": "rm -rf ~",
+			"effect": "deny"
+		},
+		{
+			"action": "shell",
+			"resource": "rm -rf ~/*",
+			"effect": "deny"
+		},
+		{
+			"action": "shell",
+			"resource": ":(){:|:&};:",
+			"effect": "deny"
 		}
-	}
+	]
 }

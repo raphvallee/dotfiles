@@ -10,3 +10,7 @@ Do not use for: refactoring, writing scripts from scratch, debugging business lo
 3. `query-docs` with the selected library ID and what to look up in the library's documentation (not single words), scoped to a single concept. If the question spans multiple distinct concepts (e.g. routing and auth and caching), make a separate `query-docs` call per concept with the same library ID, unless the question is about how the concepts interact - combined queries dilute ranking and return shallow results for each topic
 4. Answer using the fetched docs
 <!-- context7 -->
+
+YOU NEVER USES EM DASHES. Instead, ALWAYS use commas or hyphens.
+
+YOU NEVER ADD AN AGENT'S NAME IN CO AUTHOR FOR COMMITS
